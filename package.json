@@ -1,0 +1,20 @@
+{
+  "name": "memodraw",
+  "version": "1.0.0",
+  "description": "Project sample Coyotiv",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-ferrer/memodraw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-ferrer/memodraw/issues"
+  },
+  "homepage": "https://github.com/s-ferrer/memodraw#readme"
+}
