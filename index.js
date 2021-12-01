@@ -1,4 +1,3 @@
-console.log('hello world')
 
 class Person {
     constructor(name, age) {
