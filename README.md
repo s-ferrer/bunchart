@@ -1,4 +1,4 @@
-# BunchArt
+# bunchArt
 Project sample Coyotiv
 
 #LICENSE
