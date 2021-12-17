@@ -1,5 +1,5 @@
 {
-  "name": "bunchArt",
+  "name": "bunchart",
   "version": "1.0.0",
   "description": "Project sample Coyotiv",
   "main": "index.js",
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/s-ferrer/bunchArt.git"
+    "url": "git+https://github.com/s-ferrer/bunchart.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/s-ferrer/bunchArt/issues"
+    "url": "https://github.com/s-ferrer/bunchart/issues"
   },
-  "homepage": "https://github.com/s-ferrer/bunchArt#readme"
+  "homepage": "https://github.com/s-ferrer/bunchart#readme"
 }
