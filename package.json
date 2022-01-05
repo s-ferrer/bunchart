@@ -1,6 +1,6 @@
 {
   "name": "bunchart",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Project sample Coyotiv",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/s-ferrer/bunchart.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sara Ferrer <saraferrer@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/s-ferrer/bunchart/issues"
