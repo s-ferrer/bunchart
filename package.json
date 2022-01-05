@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/s-ferrer/bunchart/issues"
   },
-  "homepage": "https://github.com/s-ferrer/bunchart#readme"
+  "homepage": "https://github.com/s-ferrer/bunchart#readme",
+  "devDependencies": {
+    "eslint": "^8.6.0"
+  }
 }
