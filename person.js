@@ -6,6 +6,7 @@ class Person {
     this.profession = profession;
     this.artworks = [];
     this.likes = [];
+    this.auctions = [];
     
     }
 
@@ -22,8 +23,8 @@ class Person {
     artworkId.likedBy.push(this);
     }
 
-    bid(artworkId) {
-        this.artworks.push(artworkId);
+    bid(artAuction) {
+        this.auctions.push(artAuction);
         }
 
     get profile() {
