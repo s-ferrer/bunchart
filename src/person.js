@@ -28,19 +28,19 @@ class Person {
 
   get profile() {
     return `
-        # ${this.name} (${this.age})
-        Bio: ${this.bio}
+    # ${this.name} (${this.age})
+    Bio: ${this.bio}
 
-        ## Works (${this.artworks.length})
+    ## Works (${this.artworks.length})
 
-        ${this.artworks
-          .map(artworkId => {
-            return ` ### ${artworkId.filename}
-        ${artworkId.likedBy.map(person => person.name).join(', ')}
-        `
-          })
-          .join('\n')}
-        `
+    ${this.artworks
+      .map(artworkId => {
+        return ` ### ${artworkId.filename}
+    ${artworkId.likedBy.map(person => person.name).join(', ')}
+    `
+      })
+      .join('\n')}
+    `
   }
 
   set profile(newValue) {
