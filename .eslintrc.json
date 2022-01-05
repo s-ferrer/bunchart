@@ -1,15 +1,5 @@
 {
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/babel",
-    "prettier/flowtype",
-    "prettier/react",
-    "prettier/standard",
-    "prettier/unicorn",
-    "prettier/vue"
-  ],
+  "extends": ["airbnb", "prettier"],
   "rules": {
     "eqeqeq": "off",
     "class-methods-use-this": "off"
