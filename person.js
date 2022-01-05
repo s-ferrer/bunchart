@@ -22,6 +22,10 @@ class Person {
     artworkId.likedBy.push(this);
     }
 
+    bid(artworkId) {
+        this.artworks.push(artworkId);
+        }
+
     get profile() {
         return `
         # ${this.name} (${this.age}) 

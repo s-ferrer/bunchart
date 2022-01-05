@@ -1,5 +1,6 @@
 const Person = require("./person");
 const Artwork = require("./artwork");
+const Auction = require("./auction");
 
 const mihri = new Person('mihri', 35, 'artist');
 const manolo = new Person('manolo', 21, 'collector');
@@ -15,6 +16,12 @@ sara.bio =
 
 manolo.likeArt(painting01);
 mihri.likeArt(painting01);
+
+const nft01 = new Auction("nft", 650)
+const inst01 = new Auction("sculpture", 2700)
+
+manolo.bid(nft01);
+mihri.bid(inst01);
 
 
 console.log(sara.profile);
