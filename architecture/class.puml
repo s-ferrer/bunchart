@@ -1,0 +1,52 @@
+@startuml Bunchart Class Diagram
+
+'skinparam Shadowing false
+'skinparam Monochrome true
+
+class Person {
+    -name: string
+    +age: number
+    -photos: [Photo]
+    constructor(name: string, age: number)
+    addPhoto(photo: Photo)
+    likePhoto(photo: Photo)
+}
+
+class Artwork {
+    filename: string
+    likeBy: {Person}
+    constructor(filename: string)
+}
+
+Person "1" o---> "0..*" Artwork : keeps, likes
+Artwork  ---> "0..*" Person : liked by
+
+package PersonActions {
+    class Person {}
+    class Artwork {}
+    class Auction {}
+    class Collection {}
+}
+
+Person *- Artwork
+Artwork o-- Auction
+Auction --> Collection
+
+Person -> Artwork : upload
+
+package Payment {
+    class House {}
+    class Payment extends House {}
+    class Taxes extends House {}
+    class Billing extends House {}
+    class Shipping extends House{}
+}
+
+Payment --> Taxes : add
+Payment --> Billing : print
+Shipping ---> Artwork
+Payment ---> Collection
+
+
+
+@enduml
