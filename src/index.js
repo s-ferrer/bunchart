@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const Person = require('./person')
 const Artwork = require('./artwork')
 const Auction = require('./auction')
@@ -19,10 +20,10 @@ mihri.likeArt(painting01)
 const nft01 = new Auction('nft', 650)
 const inst01 = new Auction('sculpture', 2700)
 
-manolo.bid(nft01)
-mihri.bid(inst01)
+manolo.joinAuction(nft01)
+mihri.joinAuction(inst01)
 sara.greet(manolo)
 
-console.log(nft01.presentArtwork[0].bids.length)
+// console.log(nft01.presentedArtwork[0].bids.length)
 
 console.log(sara.profile)

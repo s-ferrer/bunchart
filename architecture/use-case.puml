@@ -1,0 +1,50 @@
+@startuml Bunchart user Diagram
+
+' This sentence change the possition
+left to right direction
+
+skinparam sequence  {
+ActorBackgroundColor DeepSkyBlue
+ArrowColor Darkblue
+}
+
+
+'skinparam Shadowing false
+'skinparam Monochrome true
+'skinparam PackageStyle rectangle
+
+actor "Artist" as artist
+actor "Collector" as collector
+
+package "Bunchart App" {
+    usecase "Share artworkId" as UC1
+    usecase "Like artworkId" as UC2
+    usecase "Delate artworkId" as UC3
+    usecase "Comment artworkId" as UC4
+}
+
+package "Live Auction" {
+    usecase "Start Auction" as UC5
+    usecase "Join Auction" as UC6
+    usecase "Start bidding" as UC7
+}
+
+package "Payment process" {
+    usecase "Does payment" as UC8
+    usecase "Recibe payment" as UC9
+}
+
+artist ---> UC1
+artist ---> UC2
+artist ---> UC3
+artist ---> UC4
+artist ---> UC5
+artist ---> UC7
+artist ---> UC9
+collector ---> UC4
+collector ---> UC2
+collector ---> UC7
+collector ---> UC8
+
+
+@enduml

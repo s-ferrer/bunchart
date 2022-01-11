@@ -4,19 +4,20 @@ class Person {
   constructor(name, age, profession) {
     this.name = name
     this.age = age
-    this.bio = ''
     this.profession = profession
-    this.artworks = []
+    this.bio = ''
+    this.artworksList = []
     this.likes = []
     this.auctions = []
   }
 
   greet(person) {
+    // eslint-disable-next-line no-console
     console.log(`Hello ${colors.red(person.name)}, this is ${this.name}`)
   }
 
   addArt(artworkId) {
-    this.artworks.push(artworkId)
+    this.artworksList.push(artworkId)
   }
 
   likeArt(artworkId) {
@@ -24,7 +25,7 @@ class Person {
     artworkId.likedBy.push(this)
   }
 
-  bid(artAuction) {
+  joinAuction(artAuction) {
     this.auctions.push(artAuction)
   }
 
@@ -35,7 +36,7 @@ Bio: ${this.bio}
 
 ## Works (${this.artworks.length})
 
-${this.artworks
+${this.artworksList
   .map(artworkId => {
     return `### ${artworkId.filename}
   ${artworkId.likedBy.map(person => person.name).join(', ')}

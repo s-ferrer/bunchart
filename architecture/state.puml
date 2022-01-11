@@ -1,0 +1,28 @@
+@startuml Bunchart state Diagram
+
+'state "Initial state" as State1
+
+
+/'[*] -> ArtworkUnlikeState: upload an artwork
+ArtworkUnlikeState --> ArtworkLikeState : like
+ArtworkLikeState --> ArtworkUnlikeState : unlike
+'/
+
+
+[*] -> State1: Request
+State1 --> State2 : Succeeded
+State1 --> [*] : Aborted
+State2 --> Delivery : Succeeded
+State2 --> [*] : Aborted
+
+state Delivery {
+    [*] --> Test
+    Test --> Deployment : tests passed
+}
+
+Delivery --> Delivery : Failed
+Delivery --> Production: Deployment succeed
+
+Production -right-> [*] : Succeeded
+
+@enduml
