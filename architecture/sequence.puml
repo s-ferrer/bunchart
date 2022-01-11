@@ -1,0 +1,61 @@
+@startuml Bunchart sequence Diagram
+
+actor UserArtist
+participant "Artwork" as A
+participant "Auction" as B
+participant "House" as C
+actor UserColector
+
+UserArtist -> A: upload an artwork
+activate A
+deactivate UserArtist
+
+A -> B: Add to auction
+activate B
+deactivate A
+
+UserArtist -> B: Set starting price
+activate B
+deactivate  UserArtist
+
+UserColector -> A: Like the Artwork
+activate A
+
+UserColector -> B: Join the Auction
+activate B
+
+UserColector -> B: Start bidding
+activate B
+
+B --> B: The bid ends
+activate B
+
+B --> B: Calculate final price
+activate B
+
+B -> C: Send price (request) to House
+activate C
+deactivate B
+
+B -> A: Artwork not available
+activate A
+
+C --> C: Activate Payment methods
+activate C
+
+UserColector -> C: Does the payment
+activate C
+
+C --> C: Payment approved
+activate C
+
+C --> C : Process Billing
+activate C
+
+C -> UserArtist : Send Bill and payment to UserArtist
+deactivate C
+
+A -> UserColector: Add artwork to collectors collection
+deactivate A
+
+@enduml
