@@ -5,7 +5,7 @@ class Auction {
     this.presentedArtworks = []
   }
 
-  presentArtwork(artworkId, startPrice) {
+  showArtwork(artworkId, startPrice) {
     this.presentedArtworks.push({
       artworkId,
       startPrice,
@@ -13,8 +13,8 @@ class Auction {
     })
   }
 
-  bid(personId, artworkId, offer) {
-    const presentedArtwork = this.presentArtworks.find(pA => pA.artworkId == artworkId)
+  startBid(personId, artworkId, offer) {
+    const presentedArtwork = this.presentedArtworks.find(showArtwork => showArtwork.artworkId == artworkId)
     if (!presentedArtwork) throw new Error('Artwork not found')
 
     // Check if the offer is higher than the previous one
