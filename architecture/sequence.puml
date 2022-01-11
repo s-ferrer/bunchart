@@ -4,34 +4,31 @@ actor UserArtist
 participant "Artwork" as A
 participant "Auction" as B
 participant "House" as C
-actor UserColector
+actor UserCollector
 
 UserArtist -> A: upload an artwork
-activate A
-deactivate UserArtist
-
-A -> B: Add to auction
-activate B
 deactivate A
+
+UserArtist -> B: Add artwork to Auction
+activate B
 
 UserArtist -> B: Set starting price
 activate B
-deactivate  UserArtist
 
-UserColector -> A: Like the Artwork
+UserCollector -> A: Like the Artwork
 activate A
 
-UserColector -> B: Join the Auction
-activate B
+UserCollector -> B: Join the Auction
+deactivate A
 
-UserColector -> B: Start bidding
+UserCollector -> B: Start bidding
 activate B
 
 B --> B: The bid ends
-activate B
+deactivate B
 
 B --> B: Calculate final price
-activate B
+deactivate B
 
 B -> C: Send price (request) to House
 activate C
@@ -39,23 +36,24 @@ deactivate B
 
 B -> A: Artwork not available
 activate A
+deactivate B
 
 C --> C: Activate Payment methods
-activate C
+deactivate C
 
-UserColector -> C: Does the payment
+UserCollector -> C: Does the payment
 activate C
 
 C --> C: Payment approved
-activate C
+deactivate C
 
 C --> C : Process Billing
 activate C
 
-C -> UserArtist : Send Bill and payment to UserArtist
+C -> UserArtist : Send Payment to UserArtist
 deactivate C
 
-A -> UserColector: Add artwork to collectors collection
-deactivate A
+C -> UserCollector : Send Invoice to UserCollector
+deactivate C
 
 @enduml

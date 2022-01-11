@@ -18,6 +18,15 @@ class Artwork {
     constructor(filename: string)
 }
 
+class Auction {
+    category: string
+    bidders: {Person}
+    presentedArtworks: [artworkId]
+    constructor(category: string)
+}
+
+class House {}
+
 Person "1" o---> "0..*" Artwork : keeps, likes
 Artwork  ---> "0..*" Person : liked by
 
@@ -25,12 +34,10 @@ package PersonActions {
     class Person {}
     class Artwork {}
     class Auction {}
-    class Collection {}
 }
 
 Person *- Artwork
-Artwork o-- Auction
-Auction --> Collection
+Artwork o--> Auction
 
 Person -> Artwork : upload
 
@@ -45,7 +52,8 @@ package Payment {
 Payment --> Taxes : add
 Payment --> Billing : print
 Shipping ---> Artwork
-Payment ---> Collection
+Payment <---> Person
+Person --> Auction
 
 
 
