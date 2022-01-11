@@ -1,3 +1,5 @@
+const colors = require('colors/safe')
+
 class Person {
   constructor(name, age, profession) {
     this.name = name
@@ -10,7 +12,7 @@ class Person {
   }
 
   greet(person) {
-    console.log(`Hello ${person.name}, this is ${this.name}`)
+    console.log(`Hello ${colors.red(person.name)}, this is ${this.name}`)
   }
 
   addArt(artworkId) {
@@ -28,19 +30,19 @@ class Person {
 
   get profile() {
     return `
-    # ${this.name} (${this.age})
-    Bio: ${this.bio}
+# ${this.name} (${this.age})
+Bio: ${this.bio}
 
-    ## Works (${this.artworks.length})
+## Works (${this.artworks.length})
 
-    ${this.artworks
-      .map(artworkId => {
-        return ` ### ${artworkId.filename}
-    ${artworkId.likedBy.map(person => person.name).join(', ')}
-    `
-      })
-      .join('\n')}
-    `
+${this.artworks
+  .map(artworkId => {
+    return `### ${artworkId.filename}
+  ${artworkId.likedBy.map(person => person.name).join(', ')}
+  `
+  })
+  .join('\n')}
+  `
   }
 
   set profile(newValue) {
