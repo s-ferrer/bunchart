@@ -21,5 +21,8 @@ const inst01 = new Auction('sculpture', 2700)
 
 manolo.bid(nft01)
 mihri.bid(inst01)
+sara.greet(manolo)
+
+console.log(nft01.presentArtwork[0].bids.length)
 
 console.log(sara.profile)
