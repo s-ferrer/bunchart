@@ -9,7 +9,7 @@ ArtworkLikeState --> ArtworkUnlikeState : unlike
 '/
 
 
- [*] -> State1: Request
+[*] -> State1: Request
 State1 --> State2 : Succeeded
 State1 --> [*] : Aborted
 State2 --> Delivery : Succeeded
