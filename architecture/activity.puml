@@ -1,0 +1,35 @@
+@startuml Bunchart activity Diagram
+
+start
+
+:Upload and artwork;
+:Add artwork to Auction;
+:Set price for artwork;
+if (price set?) then (yes)
+:Start auction;
+else (no)
+    repeat
+        :Wait for price;
+    repeat while (price set?)
+ :Start auction;
+endif
+:Bidding ends;
+:House process payment method;
+if (price paid?) then (yes)
+:Collector receibe Artwork;
+:Artist receibe payment.
+Artwork not available;
+else (no)
+    repeat
+        :Wait for payment;
+    repeat while (payment accepted)
+endif
+:Artist receibe payment.
+Artwork not available;
+
+stop
+
+
+
+
+@enduml
