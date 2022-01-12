@@ -34,7 +34,7 @@ class Person {
 # ${this.name} (${this.age})
 Bio: ${this.bio}
 
-## Works (${this.artworks.length})
+## Works (${this.artworksList.length})
 
 ${this.artworksList
   .map(artworkId => {
