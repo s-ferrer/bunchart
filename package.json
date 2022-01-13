@@ -1,12 +1,13 @@
 {
   "name": "bunchart",
   "version": "0.0.1",
-  "description": "Project sample Coyotiv",
+  "description": "An art auction app for local Artists",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "lint-staged",
-    "start": "node src/index.js",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "prepare": "husky install"
   },
   "husky": {
@@ -46,6 +47,12 @@
     "pretty-quick": "^3.1.3"
   },
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.3",
+    "express": "^4.17.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
   }
 }
