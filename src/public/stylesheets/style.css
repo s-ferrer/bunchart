@@ -1,8 +1,33 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
 body {
   padding: 50px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
+.answer {
+  font-weight: bold;
+  display: block;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+  line-height: 40px;
+  margin: 50px;
+  text-align: center;
+}
+
+p {
+  color: red;
+}
+
 a {
   color: #00b7ff;
+}
+
+.title {
+  color: purple;
 }
