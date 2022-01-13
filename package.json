@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "lint-staged",
-    "start": "node src/index.js",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
     "prepare": "husky install"
   },
   "husky": {
