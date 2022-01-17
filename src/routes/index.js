@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 const express = require('express')
@@ -11,11 +10,6 @@ const router = express.Router()
 // eslint-disable-next-line no-unused-vars
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'bunchart' })
-})
-
-router.get('/auctions', function (req, res, next) {
-  console.log('something')
-  res.render('auctions')
 })
 
 module.exports = router
