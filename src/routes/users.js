@@ -3,10 +3,14 @@ const express = require('express')
 
 const router = express.Router()
 
-const users = [
-  { name: 'sara', age: 42 },
+const Person = require('../models/person')
 
-  { name: 'manolo', age: 51 },
+const users = [
+  { name: 'sara', age: 42, profession: 'artist' },
+
+  { name: 'manolo', age: 51, profession: 'collector' },
+
+  { name: 'mihri', age: 35, profession: 'collector' },
 ]
 
 /* GET users listing. */
@@ -28,6 +32,25 @@ router.get('/:userId', function (req, res, next) {
   const user = users[req.params.userId]
   if (user) res.send(user)
   else res.sendStatus(404)
+})
+
+/* POST Create a user. */
+// eslint-disable-next-line no-unused-vars
+router.post('/', function (req, res, next) {
+  const { name, age, profession } = req.body
+
+  if (!profession || !name || !age) {
+    res
+      .send({
+        message: 'Missing fields. Please try again.',
+      })
+      .status(400)
+    return
+  }
+
+  const newUser = new Person(name, age, profession)
+
+  res.send(newUser)
 })
 
 module.exports = router
