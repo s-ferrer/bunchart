@@ -1,27 +1,34 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   position: relative;
 }
 
 body {
   padding: 50px;
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font: 14px 'Roboto', Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+  text-align: center;
+  line-height: 1.7em;
 }
 
 .answer {
   font-weight: bold;
   display: block;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 5px;
-  width: 80px;
+  background-color: rgb(64, 157, 233);
+  width: 20%;
   height: 40px;
   line-height: 40px;
-  margin: 50px;
+  margin: 50px auto;
   text-align: center;
 }
 
 p {
-  color: red;
+  color: rgb(64, 157, 233);
 }
 
 a {
