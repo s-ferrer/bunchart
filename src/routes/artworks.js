@@ -8,9 +8,9 @@ const router = express.Router()
 /* POST add an artwork. */
 // eslint-disable-next-line no-unused-vars
 router.post('/', function (req, res, next) {
-  const { filenamen, material, year, price } = req.body
+  const { fileId, material, year, price } = req.body
 
-  if (!filenamen || !material || !year || !price) {
+  if (!fileId || !material || !year || !price) {
     res
       .send({
         message: 'Missing fields.',
@@ -19,7 +19,7 @@ router.post('/', function (req, res, next) {
     return
   }
 
-  const myArtwork = new Artwork(filenamen, material, year, price)
+  const myArtwork = new Artwork(fileId, material, year, price)
 
   res.send(myArtwork)
 })
