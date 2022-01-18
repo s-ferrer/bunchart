@@ -3,14 +3,18 @@ extends layout
 block content
   .page
     nav
-      span logo
+      span
+      img(src='./images/logo-bunchart-temp.png' alt='logo' style='width:100px; height:100px;')
     main
 
       h1= title
-      p Welcome to #{title}
+      br
+      p Welcome to #{title} !
 
-      p Discover the best artists in your area
-      .promo Try something
-      #main-promo.promo Go bidding!
-      .answer Yes!
-      .answer No?
+      p Discover the best artists in your area !!
+      br
+
+      #main-promo.promo Start bidding !
+
+        .answer sing in
+        .answer register

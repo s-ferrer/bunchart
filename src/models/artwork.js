@@ -1,6 +1,7 @@
 class Artwork {
-  constructor(filename, material, year, price) {
-    this.filename = filename
+  constructor(artworkName, fileId, material, year, price) {
+    this.artworkName = artworkName
+    this.fileId = Math.floor(Math.random() * 100) // generate id´s
     this.material = material
     this.year = year
     this.price = price

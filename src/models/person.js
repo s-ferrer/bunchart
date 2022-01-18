@@ -16,13 +16,13 @@ class Person {
     console.log(`Hello ${colors.red(person.name)}, this is ${this.name}`)
   }
 
-  addArt(artworkId) {
-    this.artworksList.push(artworkId)
+  addArt(artworkName) {
+    this.artworksList.push(artworkName)
   }
 
-  likeArt(artworkId) {
-    this.likes.push(artworkId)
-    artworkId.likedBy.push(this)
+  likeArt(artworkName) {
+    this.likes.push(artworkName)
+    artworkName.likedBy.push(this)
   }
 
   joinAuction(artAuction) {
@@ -37,9 +37,9 @@ Bio: ${this.bio}
 ## Works (${this.artworksList.length})
 
 ${this.artworksList
-  .map(artworkId => {
-    return `### ${artworkId.filename}
-  ${artworkId.likedBy.map(person => person.name).join(', ')}
+  .map(artworkName => {
+    return `### ${artworkName.fileId}
+  ${artworkName.likedBy.map(person => person.name).join(', ')}
   `
   })
   .join('\n')}
