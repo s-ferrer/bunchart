@@ -13,6 +13,8 @@ const users = [
   { name: 'mihri', age: 35, profession: 'collector' },
 ]
 
+// const dena = new Person('dena', 38, 'artist')
+
 /* GET users listing. */
 
 // eslint-disable-next-line no-unused-vars
