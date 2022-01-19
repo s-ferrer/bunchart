@@ -1,12 +1,16 @@
-class Artwork {
-  constructor(artworkName, fileId, material, year, price) {
-    this.artworkName = artworkName
-    this.fileId = Math.floor(Math.random() * 100) // generate id´s
-    this.material = material
-    this.year = year
-    this.price = price
-    this.likedBy = []
-  }
-}
+const mongoose = require('mongoose')
+const autopopulate = require('mongoose-autopopulate')
 
-module.exports = Artwork
+const artworkSchema = new mongoose.Schema({
+  artworkName: String,
+  likedBy: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      autopopulate: true,
+    },
+  ],
+})
+
+artworkSchema.plugin(autopopulate)
+module.exports = mongoose.model('Artwork', artworkSchema)
