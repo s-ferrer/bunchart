@@ -15,6 +15,7 @@ services:
       - 35729:35729
     volumes:
       - ./src:/app/src
+      - ./__tests__:/app/__tests__
   mongo:
     image: mongo
     ports:
