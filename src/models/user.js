@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  profession: String,
   bio: String,
   artworksList: [
     {
@@ -28,16 +29,16 @@ const userSchema = new mongoose.Schema({
 })
 
 class User {
-  async addArt(artworkName) {
-    this.artworksList.push(artworkName)
+  async addArt(artwork) {
+    this.artworksList.push(artwork)
     await this.save()
   }
 
-  async likeArt(artworkName) {
-    this.likes.push(artworkName)
-    artworkName.likedBy.push(this)
+  async likeArt(artwork) {
+    this.likes.push(artwork)
+    artwork.likedBy.push(this)
 
-    await artworkName.save()
+    await artwork.save()
     await this.save()
   }
 
