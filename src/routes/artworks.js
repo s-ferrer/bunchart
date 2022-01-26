@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable func-names */
 const express = require('express')
 
@@ -5,23 +6,25 @@ const Artwork = require('../models/artwork')
 
 const router = express.Router()
 
-/* POST add an artwork. */
+/* POST create an artwork */
+router.post('/', async (req, res) => {
+  const createdArtwork = await Artwork.create(req.body)
+  res.send(createdArtwork)
+})
+
+/* GET users listing. */
+
 // eslint-disable-next-line no-unused-vars
-router.post('/', function (req, res, next) {
-  const { fileId, material, year, price } = req.body
+router.get('/', async (req, res, next) => {
+  const query = {}
 
-  if (!fileId || !material || !year || !price) {
-    res
-      .send({
-        message: 'Missing fields.',
-      })
-      .status(400)
-    return
+  if (req.query._id) {
+    query.name = req.query._id
   }
-
-  const myArtwork = new Artwork(fileId, material, year, price)
-
-  res.send(myArtwork)
+  if (req.query.artworkName) {
+    query.name = req.query.artworkName
+  }
+  res.send(await Artwork.find(query)).sendStatus(200)
 })
 
 module.exports = router
