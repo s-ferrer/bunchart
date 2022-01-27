@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       users: [],
+      time: new Date(),
     }
   },
   async created() {
@@ -23,8 +24,6 @@ export default {
 <template lang="pug">
   .home
     h1 bunchart
-    user-card
-    img(alt="bunchart logo" src="../assets/logo-bunchart-temp.png")
-    div(v-for="user in users") {{ user.name }} has {{ user.artworksList.length }} artworksList
-
+    p The time is: {{ time }}
+    user-card(v-for="user in users" :user="user")
 </template>
