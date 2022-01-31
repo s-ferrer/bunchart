@@ -1,22 +1,30 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/home.vue'
+import UserList from '../views/user-list.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'UserList',
+    component: UserList,
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/users/:id',
+    name: 'UserDetail',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/about.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/user-detail.vue'),
+  },
+  {
+    path: '/auction',
+    name: 'Auction',
+    // route level code-splitting
+    // this generates a separate chunk (auction.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "auction" */ '../views/auction.vue'),
   },
 ]
 
