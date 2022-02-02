@@ -1,0 +1,70 @@
+{
+  "name": "bunchart",
+  "version": "0.0.1",
+  "description": "An art auction app for local Artists",
+  "main": "./bin/www",
+  "scripts": {
+    "test": "jest --testEnvironment=node --verbose --forceExit --maxWorkers=1",
+    "test-watch": "jest --testEnvironment=node --verbose --forceExit --watchAll --maxWorkers=1",
+    "test-coverage": "jest --collect-coverage --testEnvironment=node --forceExit --maxWorkers=1",
+    "lint": "lint-staged",
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ],
+    "*.+(json|css|md)": [
+      "pretty-quick --staged"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-ferrer/bunchart.git"
+  },
+  "keywords": [],
+  "author": "Sara Ferrer <saraferrer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-ferrer/bunchart/issues"
+  },
+  "homepage": "https://github.com/s-ferrer/bunchart#readme",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "lint-staged": "^12.1.5",
+    "prettier": "2.5.1",
+    "pretty-quick": "^3.1.3",
+    "supertest": "^6.2.2"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.3",
+    "eslint-plugin-jest": "^26.0.0",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.1.7",
+    "mongoose-autopopulate": "^0.16.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "pug": "^3.0.2"
+  }
+}
