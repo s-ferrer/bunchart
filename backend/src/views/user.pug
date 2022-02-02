@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 #{user.name} (#{user.age}) #{user.profession}
+  p Bio: #{user.bio}
+  h2 Artworks (#{user.artworksList.length})
+
+  each photo in user.artworksList
+    h3 #{artwork.artworkName}
+    if artwork.likeArt.length == 0
+      p no likes yet!
+    else
+      p #{artwork.likeArt.map(user => user.name).join(', ')}
