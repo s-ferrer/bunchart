@@ -33,7 +33,7 @@ app.use(cookieParser())
 
 app.use(
   session({
-    secret: ['mysecuresecuresecret', 'butthissecretisalsomoresecret'],
+    secret: [process.env.SECRET_ONE, process.env.SECRET_TWO],
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
