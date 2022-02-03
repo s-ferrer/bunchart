@@ -1,8 +1,15 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
 const express = require('express')
 
 const router = express.Router()
+
+const axios = require('axios')
+
+const describeImage = require('../lib/image-description')
+
+const downloadImage = require('../lib/download-image')
 
 const User = require('../models/user')
 
@@ -38,6 +45,21 @@ router.post('/', async (req, res) => {
   res.send(createdUser)
 })
 
+async function createArtwork({ artworkName, fileName }) {
+  const artwork = await Artwork.create({ artworkName })
+
+  const picsumUrl = `https://picsum.photos/seed/${artwork._id}/300/300`
+
+  const pictureRequest = await axios.get(picsumUrl)
+  artwork.fileName = pictureRequest.request.path
+
+  const imagePath = await downloadImage(picsumUrl, fileName)
+  const description = await describeImage(imagePath)
+  artwork.description = description.BestOutcome.Description
+
+  return artwork.save()
+}
+
 router.get('/initialize', async (req, res) => {
   const mihri = new User({ name: 'mihri', age: 35, profession: 'collector', email: 'mihi@lalal.com' })
   await mihri.setPassword('test')
@@ -54,22 +76,20 @@ router.get('/initialize', async (req, res) => {
   sara.bio = ' An international visual artist'
   sara.save()
 
-  const illustrationArtwork = await Artwork.create({
+  const illustrationArtwork = await createArtwork({ artworkName: 'My Bubbles', fileName: 'bubbles.jpg' })
+
+  const carvingArtwork = await createArtwork({ artworkName: 'My Bodegon', fileName: 'bodegon.jpg' })
+
+  /*  const illustrationArtwork = await Artwork.create({
     artworkName: 'My Bubbles',
     fileName: 'bubbles.jpg',
-    material: 'Photo',
-    year: 2019,
-    price: 2300,
   })
 
-  const carvingArtwork = await Artwork.create({
+    const carvingArtwork = await Artwork.create({
     artworkName: 'My Bodegon',
     fileName: 'bodegon.jpg',
-    material: 'Painting',
-    year: 2021,
-    price: 3100,
   })
-
+*/
   await sara.addArt(illustrationArtwork)
   await sara.addArt(carvingArtwork)
   await mihri.likeArt(carvingArtwork)
