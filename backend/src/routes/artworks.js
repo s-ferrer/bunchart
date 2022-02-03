@@ -9,7 +9,7 @@ const router = express.Router()
 /* POST create an artwork */
 router.post('/', async (req, res) => {
   const artworkToCreate = {
-    filename: req.body.filename,
+    fileName: req.body.fileName,
   }
   const createdArtwork = await Artwork.create(artworkToCreate)
   res.send(createdArtwork)
