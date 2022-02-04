@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable func-names */
+require('dotenv').config()
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -33,7 +34,7 @@ app.use(cookieParser())
 
 app.use(
   session({
-    secret: ['mysecuresecuresecret', 'butthissecretisalsomoresecret'],
+    secret: [process.env.SECRET_ONE, process.env.SECRET_TWO],
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,

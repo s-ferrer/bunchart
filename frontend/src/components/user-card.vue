@@ -12,7 +12,7 @@ export default {
     h2 Artworks ({{ user.artworksList.length }})
 
     .artwork(v-for="artwork in user.artworksList")
-        h3 {{ artwork.artworkName }}
+        img(:src="`https://picsum.photos${artwork.fileName}`" :alt="artwork.description" :title="artwork.description")
         p(v-if="!artwork.likedBy.length")
           | no likes yet!
         p(v-else)

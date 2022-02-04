@@ -3,13 +3,11 @@ const autopopulate = require('mongoose-autopopulate')
 
 const artworkSchema = new mongoose.Schema({
   artworkName: String,
+  description: String,
   fileName: {
     type: String,
     requiered: true,
   },
-  material: String,
-  year: Number,
-  price: Number,
   likedBy: [
     {
       type: mongoose.Schema.Types.ObjectId,
