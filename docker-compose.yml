@@ -4,7 +4,7 @@ services:
     image: frontend
     build:
       context: frontend
-      dockerfile: Dockerfile
+      dockerfile: dev.Dockerfile
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.frontend.rule=Host(`bunchart.localhost`)"
@@ -18,7 +18,7 @@ services:
     image: backend
     build:
       context: backend
-      dockerfile: Dockerfile
+      dockerfile: dev.Dockerfile
     environment:
       # - MONGODB_USERNAME
       # - MONGODB_PASSWORD
@@ -29,7 +29,7 @@ services:
       - "traefik.http.routers.backend.rule=(Host(`bunchart.localhost`) && PathPrefix(`/api`))"
       - "traefik.http.routers.backend.entrypoints=web"
     ports:
-      - 4000:3000
+      - 4000
       - 35729:35729
     volumes:
       - ./backend/src:/app/src
