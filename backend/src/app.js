@@ -9,11 +9,14 @@ const logger = require('morgan')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
+const mongoose = require('mongoose')
+const cors = require('cors')
+
 const User = require('./models/user')
 
-const mongooseConnection = require('./database-connection')
+require('./database-connection')
 
-const clientPromise = Promise.resolve(mongooseConnection.getClient())
+const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
@@ -22,6 +25,17 @@ const auctionsRouter = require('./routes/auctions')
 const accountsRouter = require('./routes/accounts')
 
 const app = express()
+
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+)
+
+app.set('trust proxy', 1)
+
+// app.set('io', socketService)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -39,6 +53,8 @@ app.use(
     cookie: {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       path: '/api',
+      sameSite: 'none',
+      secure: true,
     },
   })
 )
