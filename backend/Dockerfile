@@ -4,7 +4,7 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 
-ADD package.json package-lock.json .env ./
+ADD package.json package-lock.json ./
 
 RUN npm install --production --ignore-scripts
 
