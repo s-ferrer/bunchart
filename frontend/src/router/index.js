@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Profile from '../views/profile.vue'
+// import Profile from '../views/profile.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
 
@@ -40,7 +40,7 @@ const routes = [
       return next()
     },
   },
-  {
+  /* {
     path: '/profile',
     name: 'profile',
     component: UserList,
@@ -49,6 +49,7 @@ const routes = [
       return next()
     },
   },
+  */
   {
     path: '/auction',
     name: 'Auction',
