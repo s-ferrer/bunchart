@@ -58,14 +58,14 @@ app.use(cookieParser())
 
 app.use(
   session({
-    secret: ['howtomakethisprotectedisachallange', 'thisisavalidatorformyfirstsecretsecret'],
+    secret: [process.env.SECRET_ONE, process.env.SECRET_TWO],
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
       // our session expires in 30 day in milliseconds
       maxAge: 30 * 24 * 60 * 60 * 1000,
       path: '/api',
-      sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
-      secure: process.env.NODE_ENV == 'production',
+      sameSite: 'none',
+      secure: true,
     },
   })
 )
