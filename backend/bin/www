@@ -7,9 +7,9 @@
  */
 
 const app = require('../src/app')
-// const debug = require('debug')('bunchart:server')
+const debug = require('debug')('bunchart:server')
 // const debug = require('debug')('be103:server')
-const debug = require('debug')('be301:server')
+// const debug = require('debug')('be301:server')
 const http = require('http')
 
 /**
