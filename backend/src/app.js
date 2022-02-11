@@ -1,6 +1,5 @@
 /* eslint-disable no-plusplus */
-/* eslint-disable func-names */
-require('dotenv').config()
+/* eslint-disable no-console */
 const createError = require('http-errors')
 const express = require('express')
 const path = require('path')
@@ -15,9 +14,10 @@ const cors = require('cors')
 const User = require('./models/user')
 
 require('./database-connection')
+const socketService = require('./socket-service')
+// require("livereload").createServer({ usePolling: true });
 
 const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
-const socketService = require('./socket-service')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
@@ -34,6 +34,15 @@ app.use(
   })
 )
 
+if (app.get('env') == 'development') {
+  /* eslint-disable-next-line */
+  app.use(require('connect-livereload')())
+  /* eslint-disable-next-line */
+  require('livereload')
+    .createServer({ extraExts: ['pug'] })
+    .watch([`${__dirname}/public`, `${__dirname}/views`])
+}
+
 app.set('trust proxy', 1)
 
 app.set('io', socketService)
@@ -49,13 +58,14 @@ app.use(cookieParser())
 
 app.use(
   session({
-    secret: [process.env.SECRET_ONE, process.env.SECRET_TWO],
+    secret: ['howtomakethisprotectedisachallange', 'thisisavalidatorformyfirstsecretsecret'],
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
+      // our session expires in 30 day in milliseconds
       maxAge: 30 * 24 * 60 * 60 * 1000,
       path: '/api',
-      sameSite: 'none',
-      secure: true,
+      sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
+      secure: process.env.NODE_ENV == 'production',
     },
   })
 )
@@ -96,7 +106,11 @@ app.use((err, req, res, next) => {
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error')
+  res.send({
+    status: err.status,
+    message: err.message,
+    stack: req.app.get('env') == 'development' ? err.stack : '',
+  })
 })
 
 module.exports = app
