@@ -9,7 +9,6 @@ export default {
       age: null,
       email: '',
       password: '',
-
       backendError: null,
     }
   },
@@ -36,20 +35,20 @@ export default {
 </script>
 
 <template lang="pug">
-.register
-form( @submit="submitLogin")
-    h1 Create a new account
-    label(for="name") Name:&nbsp;
+  .register
+    form( @submit="submitLogin")
+      h1 Create a new account
+      label(for="name") Name:&nbsp;
         input(v-model="name" id="name" type="text" placeholder="Your name" required)
-    label(for="age") Age:&nbsp;
+      label(for="age") Age:&nbsp;
         input(v-model="age" id="age" type="number" placeholder="Your age" required)
-    label(for="email") Email:&nbsp;
+      label(for="email") Email:&nbsp;
         input(v-model="email" id="email" type="email" placeholder="Your email" required)
-    label(for="password") Password:&nbsp;
+      label(for="password") Password:&nbsp;
         input(v-model="password" id="password" type="password" placeholder="Your password" required)
-    input(type="submit" value="Register")
-    div(v-if="backendError") {{ backendError }}
-    div Already have an account? <router-link to="/login">Log in</router-link>
+      input(type="submit" value="Register")
+      div(v-if="backendError") {{ backendError }}
+      div Already have an account? <router-link to="/login">Log in</router-link>
 </template>
 
 <style lang="scss" scoped>
