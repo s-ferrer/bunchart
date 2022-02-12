@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Home from '../views/home.vue'
 import Profile from '../views/profile.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
@@ -12,7 +13,12 @@ export default function init(store) {
     base: process.env.BASE_URL,
     routes: [
       {
-        path: '/',
+        path: '*',
+        name: 'Home',
+        component: Home,
+      },
+      {
+        path: '/profile',
         name: 'Profile',
         component: Profile,
       },
