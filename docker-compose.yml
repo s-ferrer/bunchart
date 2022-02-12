@@ -26,7 +26,7 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/cicd102
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.backend.rule=(Host(`picories.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))"
+      - "traefik.http.routers.backend.rule=(Host(`bunchart.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))"
       - "traefik.http.routers.backend.entrypoints=web"
 
     ports:
