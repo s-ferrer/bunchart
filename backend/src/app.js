@@ -15,7 +15,7 @@ const User = require('./models/user')
 
 require('./database-connection')
 const socketService = require('./socket-service')
-// require("livereload").createServer({ usePolling: true });
+// require('livereload').createServer({ usePolling: true })
 
 const clientPromise = mongoose.connection.asPromise().then(connection => connection.getClient())
 
@@ -34,14 +34,14 @@ app.use(
   })
 )
 
-if (app.get('env') == 'development') {
-  /* eslint-disable-next-line */
-  app.use(require('connect-livereload')())
-  /* eslint-disable-next-line */
-  require('livereload')
-    .createServer({ extraExts: ['pug'] })
-    .watch([`${__dirname}/public`, `${__dirname}/views`])
-}
+// if (app.get('env') == 'development') {
+/* eslint-disable-next-line */
+// app.use(require('connect-livereload')())
+/* eslint-disable-next-line */
+//  require('livereload')
+//    .createServer({ extraExts: ['pug'] })
+//    .watch([`${__dirname}/public`, `${__dirname}/views`])
+// }
 
 app.set('trust proxy', 1)
 
@@ -58,14 +58,13 @@ app.use(cookieParser())
 
 app.use(
   session({
-    secret: [process.env.SECRET_ONE, process.env.SECRET_TWO],
+    secret: ['mysecuresecuresecretsecretsupersecret', 'butthissecretisalsomoresecretsecretsupersecret'],
     store: MongoStore.create({ clientPromise, stringify: false }),
     cookie: {
-      // our session expires in 30 day in milliseconds
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      maxAge: 30 * 24 * 60 * 60 * 1000, // our session expires in 30 day in milliseconds
       path: '/api',
-      sameSite: 'none',
-      secure: true,
+      sameSite: process.env.NODE_ENV == 'production' ? 'none' : 'strict',
+      secure: process.env.NODE_ENV == 'production',
     },
   })
 )
