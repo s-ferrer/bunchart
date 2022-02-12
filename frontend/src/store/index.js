@@ -11,9 +11,9 @@ Vue.use(Vuex)
 
 const socket = io(process.env.VUE_APP_BASE_URL)
 
-// socket.on('hello world!', () => {
-//   console.log('we received message from the websocket server!')
-// })
+socket.on('hello world!', () => {
+  console.log('we received message from the websocket server!')
+})
 
 // setInterval(() => {
 //   const number = Math.random()
@@ -77,6 +77,10 @@ const store = new Vuex.Store({
       commit(mutations.SET_USER, user.data || null)
     },
     async login({ commit }, credentials) {
+      const userResponse = await axios.post('/api/account/session', credentials)
+      commit(mutations.SET_USER, userResponse.data || null)
+    },
+    /* async login({ commit }, credentials) {
       try {
         const user = await axios.post('/api/account/session', credentials)
         commit(mutations.SET_USER, user.data)
@@ -84,6 +88,7 @@ const store = new Vuex.Store({
         throw e
       }
     },
+    */
     async register(store, user) {
       return axios.post('/api/account', user)
     },
