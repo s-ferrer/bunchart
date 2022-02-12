@@ -1,33 +1,16 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
+
+/* eslint-disable */
 
 /**
  * Module dependencies.
  */
 
-const debug = require('debug')('be103:server')
-const http = require('http')
 const app = require('../src/app')
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-  const port = parseInt(val, 10)
-
-  if (Number.isNaN(port)) {
-    // named pipe
-    return val
-  }
-
-  if (port >= 0) {
-    // port number
-    return port
-  }
-
-  return false
-}
+const debug = require('debug')('bunchart:server')
+// const debug = require('debug')('be103:server')
+// const debug = require('debug')('be301:server')
+const http = require('http')
 
 /**
  * Get port from environment and store in Express.
@@ -42,11 +25,35 @@ app.set('port', port)
 
 const server = http.createServer(app)
 
+app.get('io').attach(server)
+
 /**
  * Listen on provided port, on all network interfaces.
  */
 
 server.listen(port)
+server.on('error', onError)
+server.on('listening', onListening)
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  const port = parseInt(val, 10)
+
+  if (isNaN(port)) {
+    // named pipe
+    return val
+  }
+
+  if (port >= 0) {
+    // port number
+    return port
+  }
+
+  return false
+}
 
 /**
  * Event listener for HTTP server "error" event.
@@ -74,8 +81,6 @@ function onError(error) {
   }
 }
 
-server.on('error', onError)
-
 /**
  * Event listener for HTTP server "listening" event.
  */
@@ -85,5 +90,3 @@ function onListening() {
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`
   debug(`Listening on ${bind}`)
 }
-
-server.on('listening', onListening)
