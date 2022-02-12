@@ -1,5 +1,5 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -10,11 +10,16 @@ export default {
       this.$router.push('/login')
     },
   },
+  computed: {
+    ...mapState(['user']),
+  },
 }
 </script>
+
 <template lang="pug">
   #app
     #nav
+      router-link(to="/*") Home
       router-link(to="/profile") Profile
       router-link(to="/login") Login
       router-link(to="/register") Register
