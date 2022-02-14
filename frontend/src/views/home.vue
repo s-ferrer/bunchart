@@ -1,17 +1,24 @@
 <script>
+import AuctionCard from '@/components/auction-card.vue'
+
 export default {
   name: 'Home',
+  components: { AuctionCard },
+  data() {
+    return { logo: 'logo-bunchart-temp' }
+  },
 }
 </script>
 
 <template lang="pug">
   .home
     .container
-      img(src='../assets/logo-bunchart-temp.png' alt='logo' style='width:350px; height:350px;')
-      h1 bunchart
-      h2 Support your local artists!
+      img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
+    .container
+      h1 Support your local artists!
     .box
-        button(@click="goBidding") Start bidding!
+      AuctionCard
+
 
 </template>
 
@@ -19,33 +26,32 @@ export default {
 .home {
   background-color: rgb(3, 3, 3);
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+img {
+  width: 350px;
+  height: 350px;
+}
 .container {
   h1 {
     background-color: rgb(0, 0, 0);
     margin: 3rem;
-    color: rgb(114, 166, 224);
-  }
-  h2 {
-    background-color: rgb(0, 0, 0);
-    margin: 3rem;
-    color: rgb(114, 166, 224);
+    color: #d8dee2;
   }
 }
 .box {
-  background-color: rgb(24, 147, 230);
-  padding: 4rem;
-  border-radius: 25px;
-  h3 {
-    background-color: rgb(119, 101, 160);
-    margin: 4rem;
-  }
-  button {
-    background-color: rgb(0, 0, 0);
-    color: aqua;
-    padding: 1rem;
-    border-radius: 25px;
-  }
+  background-color: #f0f4f7;
+  padding: 2rem;
+  border-radius: 10px;
 }
 </style>
