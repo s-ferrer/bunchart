@@ -9,9 +9,10 @@ export default {
   .box
     .container1
       button(@click="") Start bidding
-    .container
+    .container2
       img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
-
+    .container3
+      .centered Artwork
 </template>
 
 <style lang="scss" scoped>
@@ -19,33 +20,34 @@ export default {
   margin: 1%;
   padding: 0.7rem;
   // text-align: center;
-}
-.container {
-  img {
-    width: 350px;
-    height: 350px;
-    border-radius: 0.7rem;
-  }
 
-  .texttop {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+  .container1 {
+    button {
+      border-radius: 0.7rem;
+      padding: 0.7rem;
+      margin: 10px;
+      background-color: #2e8bc0;
+      color: #ffffff;
+      font-size: 1rem;
+    }
   }
-
-  h1 {
-    color: #145da0;
+  .container2 {
+    img {
+      width: 350px;
+      height: 350px;
+      border-radius: 0.7rem;
+    }
   }
-}
-.container1 {
-  button {
-    border-radius: 0.7rem;
-    padding: 0.7rem;
-    margin: 10px;
-    background-color: #2e8bc0;
-    color: #b1d4e0;
+  .container3 {
+    .centered {
+      background-color: aqua;
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(14, 13, 13);
+      padding: 8rem;
+    }
   }
 }
 </style>
