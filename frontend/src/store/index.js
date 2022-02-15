@@ -33,6 +33,7 @@ const mutations = {
   SET_LIVE_STREAM: 'set live stream',
   ADD_LIVE_STREAM: 'add live stream',
   ADD_MESSAGE_TO_LIVE_STREAM: 'add message to live stream',
+  // SET_LIVE_BIDDING: 'set live bidding',
 }
 
 const store = new Vuex.Store({
@@ -59,6 +60,9 @@ const store = new Vuex.Store({
     [mutations.ADD_MESSAGE_TO_LIVE_STREAM](state, message) {
       state.liveStreamMessages.push(message)
     },
+    /*[mutations.SET_LIVE_BIDDING](state, bidding) {
+      state.currentLiveBidding = bidding
+    }, */
   },
   actions: {
     incrementCount({ commit }) {
@@ -83,7 +87,7 @@ const store = new Vuex.Store({
     /* async login({ commit }, credentials) {
       try {
         const user = await axios.post('/api/account/session', credentials)
-        commit(mutations.SET_USER, user.data)
+        commit(mutations.SET_BIDDING, user.data)
       } catch (e) {
         throw e
       }
@@ -116,6 +120,11 @@ const store = new Vuex.Store({
       socket.emit('join stream', stream)
       commit(mutations.SET_LIVE_STREAM, stream)
     },
+    /* async goBidding({ state, commit }) {
+      socket.emit('Start bidding', state.user._id, status => {
+        commit(mutations.SET_LIVE_BIDDING, state.user._id)
+      })
+    },*/
   },
   modules: {},
 })
