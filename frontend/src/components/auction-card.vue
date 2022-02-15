@@ -1,24 +1,17 @@
 <script>
 export default {
   name: 'AuctionCard',
-  props: ['auctioncard'],
-  data() {
-    return { lastAuction: 'painting' }
-  },
+  props: ['auction'],
 }
 </script>
 
 <template lang="pug">
   .box
     .container
-      h1 Last paintings on auction!
       button(@click="") Start bidding
 
     .container
-      img(:src="require(`@/assets/${this.lastAuction}.jpg`)" :alt="`This is the ${this.lastAuction} image`")
-
-
-
+      img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
 
 </template>
 

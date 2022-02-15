@@ -5,7 +5,10 @@ export default {
   name: 'Home',
   components: { AuctionCard },
   data() {
-    return { logo: 'logo-bunchart-temp' }
+    return {
+      logo: 'logo-bunchart-temp',
+      auctions: [{ category: 'digital' }, { category: 'painting' }],
+    }
   },
 }
 </script>
@@ -17,7 +20,9 @@ export default {
     .container
       h1 Support your local artists!
     .box
-      AuctionCard
+      h1 Last auctions!
+      AuctionCard(v-for="auction in auctions" :auction="auction")
+
 
 
 </template>
