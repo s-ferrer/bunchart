@@ -15,9 +15,9 @@ export default {
 
 <template lang="pug">
   .home
-    .container
+    .container1
       img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
-    .container
+    .container2
       h1 Support your local artists!
     .box
       h1 Last auctions!
@@ -35,23 +35,27 @@ export default {
   flex-wrap: wrap;
   padding-top: 50px;
   align-content: center;
+  text-align: center;
 }
 
-.container {
+.container1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  h1 {
-    background-color: rgb(0, 0, 0);
-    margin: 3rem;
-    color: #ffffff;
-    width: 400px;
-  }
+
   img {
     width: 350px;
     height: 350px;
     display: block;
     margin: auto;
+  }
+}
+.container2 {
+  h1 {
+    background-color: rgb(0, 0, 0);
+    margin: 3rem;
+    color: #ffffff;
+    width: 400px;
   }
 }
 .box {
