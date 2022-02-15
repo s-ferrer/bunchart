@@ -30,28 +30,28 @@ export default {
 <style lang="scss" scoped>
 .home {
   background-color: rgb(3, 3, 3);
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  padding-top: 50px;
+  align-content: center;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: center;
-}
-
-img {
-  width: 350px;
-  height: 350px;
-}
-.container {
   h1 {
     background-color: rgb(0, 0, 0);
     margin: 3rem;
-    color: #d8dee2;
+    color: #ffffff;
+    width: 400px;
+  }
+  img {
+    width: 350px;
+    height: 350px;
+    display: block;
+    margin: auto;
   }
 }
 .box {

@@ -7,9 +7,8 @@ export default {
 
 <template lang="pug">
   .box
-    .container
+    .container1
       button(@click="") Start bidding
-
     .container
       img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
 
@@ -27,9 +26,20 @@ export default {
     height: 350px;
     border-radius: 0.7rem;
   }
+
+  .texttop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
   h1 {
     color: #145da0;
   }
+}
+.container1 {
   button {
     border-radius: 0.7rem;
     padding: 0.7rem;
