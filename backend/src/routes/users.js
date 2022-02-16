@@ -7,6 +7,9 @@ const router = express.Router()
 
 const axios = require('axios')
 
+// eslint-disable-next-line no-unused-vars
+const { celebrate, Joi, errors, Segments } = require('celebrate')
+
 const describeImage = require('../lib/image-description')
 
 const downloadImage = require('../lib/download-image')
@@ -19,12 +22,40 @@ const Artwork = require('../models/artwork')
 
 /* GET users listing. */
 
+router.get(
+  '/',
+  celebrate({
+    [Segments.QUERY]: {
+      name: Joi.string(),
+      age: Joi.number(),
+      profession: Joi.string(),
+    },
+  }),
+  async (req, res) => {
+    const query = {}
+
+    if (req.query.name) {
+      query.name = req.query.name
+    }
+
+    if (req.query.age) {
+      query.age = req.query.age
+    }
+
+    res.send(await User.find(query))
+  }
+)
+
 // eslint-disable-next-line no-unused-vars
 router.get('/', async (req, res, next) => {
   const query = {}
 
   if (req.query.name) {
     query.name = req.query.name
+  }
+
+  if (req.query.age) {
+    query.age = req.query.age
   }
 
   if (req.query.profession) {
@@ -35,15 +66,28 @@ router.get('/', async (req, res, next) => {
 })
 
 /* POST create a user */
-router.post('/', async (req, res) => {
-  const userToCreate = {
-    name: req.body.name,
-    age: req.body.age,
-    profession: req.body.profession,
+router.post(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      name: Joi.string().required(),
+      age: Joi.number().required(),
+      profession: Joi.string().required(),
+      email: Joi.string().email().required(),
+    },
+  }),
+  async (req, res) => {
+    const userToCreate = {
+      name: req.body.name,
+      age: req.body.age,
+      profession: req.body.age,
+      email: req.body.email,
+    }
+
+    const createdUser = await User.create(userToCreate)
+    res.send(createdUser)
   }
-  const createdUser = await User.create(userToCreate)
-  res.send(createdUser)
-})
+)
 
 async function createArtwork({ artworkName, fileName }) {
   const artwork = await Artwork.create({ artworkName })

@@ -10,6 +10,9 @@ const MongoStore = require('connect-mongo')
 const passport = require('passport')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const helmet = require('helmet')
+const mongoSanitize = require('express-mongo-sanitize')
+const { errors } = require('celebrate')
 
 const User = require('./models/user')
 
@@ -26,6 +29,8 @@ const auctionsRouter = require('./routes/auctions')
 const accountsRouter = require('./routes/accounts')
 
 const app = express()
+
+app.use(helmet())
 
 app.use(
   cors({
@@ -54,6 +59,9 @@ app.set('view engine', 'pug')
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+app.use(mongoSanitize({ replaceWith: '_' }))
+
 app.use(cookieParser())
 
 app.use(
@@ -90,6 +98,8 @@ app.use('/api/account', accountsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/artworks', artworksRouter)
 app.use('/api/auctions', auctionsRouter)
+
+app.use(errors())
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

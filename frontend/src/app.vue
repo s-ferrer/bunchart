@@ -23,6 +23,7 @@ export default {
       router-link(to="/profile") Profile
       router-link(to="/login") Login
       router-link(to="/register") Register
+      router-link(to="/auction") Auction
       a(@click="doLogout" href="#") Logout
     router-view
 </template>
