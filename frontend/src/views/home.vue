@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       logo: 'logo-bunchart-temp',
-      auctions: [{ category: 'digital' }, { category: 'painting' }],
+      auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
     }
   },
 }
@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  background-color: rgb(3, 3, 3);
+  background-color: #162c40;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -52,15 +52,22 @@ export default {
 }
 .container2 {
   h1 {
-    background-color: rgb(0, 0, 0);
     margin: 3rem;
     color: #ffffff;
     width: 400px;
   }
 }
 .box {
-  background-color: #f0f4f7;
+  background-color: #162c40;
   padding: 2rem;
   border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #05f2f2;
+
+  h1 {
+    color: #d94e5a;
+    margin-bottom: 3rem;
+  }
 }
 </style>

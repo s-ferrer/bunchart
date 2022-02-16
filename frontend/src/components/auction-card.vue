@@ -6,22 +6,29 @@ export default {
 </script>
 
 <template lang="pug">
-  .box
+  .box1
     .container1
+      p {{ auction.category }}
       button(@click="") Start bidding
     .container2
       img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
-    .container3
-      .centered Artwork
+
 </template>
 
 <style lang="scss" scoped>
-.box {
+.box1 {
   margin: 1%;
   padding: 0.7rem;
   // text-align: center;
 
   .container1 {
+    p {
+      background-color: orange;
+      color: #162c40;
+      font-size: 2rem;
+      padding: 3px;
+      margin: 2px 10px 4px 10px;
+    }
     button {
       border-radius: 0.7rem;
       padding: 0.7rem;
@@ -36,17 +43,6 @@ export default {
       width: 350px;
       height: 350px;
       border-radius: 0.7rem;
-    }
-  }
-  .container3 {
-    .centered {
-      background-color: aqua;
-      position: absolute;
-      top: 120%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: rgb(14, 13, 13);
-      padding: 8rem;
     }
   }
 }

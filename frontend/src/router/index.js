@@ -4,6 +4,7 @@ import Home from '../views/home.vue'
 import Profile from '../views/profile.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
+import Auction from '../views/auction.vue'
 
 Vue.use(VueRouter)
 
@@ -56,6 +57,11 @@ export default function init(store) {
           if (!store.state.user) return next('/login')
           return next()
         },
+      },
+      {
+        path: '/auction',
+        name: 'Auction',
+        component: Auction,
       },
     ],
   })
