@@ -1,13 +1,14 @@
 <script>
 export default {
   name: 'AuctionSet',
-  props: ['artwork'],
+  props: ['auction'],
 }
 </script>
 
 <template lang="pug">
-  .box
-    h1 {{ artwork.artworkName }} {{ artwork.filename }} {{ artwork.material }} {{ artwork.price }}
+  .box1
+    .container1
+      img(:src="require(`@/assets/${this.auction.showArtwork}.jpg`)" :alt="`This is the ${this.auction.showArtwork} image`")
 
 </template>
 
@@ -16,7 +17,7 @@ export default {
   color: white;
   padding: 2rem;
   border: 1px solid rgb(36, 25, 190);
-  background: rgb(81, 115, 209);
+  background-color: #162c40;
   border-radius: 0.3rem;
   text-align: center;
 }

@@ -19,7 +19,6 @@ export default {
 .box1 {
   margin: 1%;
   padding: 0.7rem;
-  // text-align: center;
 
   .container1 {
     p {
