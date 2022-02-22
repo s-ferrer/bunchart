@@ -6,7 +6,7 @@ export default {
   components: { AuctionCard },
   data() {
     return {
-      logo: 'logo-bunchart-temp',
+      logo: 'logo-bunchart',
       auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
     }
   },

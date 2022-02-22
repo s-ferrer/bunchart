@@ -19,11 +19,6 @@ export default function init(store) {
         component: Home,
       },
       {
-        path: '/profile',
-        name: 'Profile',
-        component: Profile,
-      },
-      {
         path: '/users/:id',
         name: 'UserDetail',
         // route level code-splitting
@@ -62,6 +57,10 @@ export default function init(store) {
         path: '/auction',
         name: 'Auction',
         component: Auction,
+        beforeEnter(to, from, next) {
+          if (!store.state.user) return next('/login')
+          return next()
+        },
       },
     ],
   })

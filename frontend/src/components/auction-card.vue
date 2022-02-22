@@ -19,20 +19,19 @@ export default {
 .box1 {
   margin: 1%;
   padding: 0.7rem;
-  // text-align: center;
 
   .container1 {
     p {
-      background-color: orange;
+      background-color: #05dbf2;
       color: #162c40;
       font-size: 2rem;
-      padding: 3px;
-      margin: 2px 10px 4px 10px;
+      padding: 4px;
+      margin: 2px 23px 4px 23px;
     }
     button {
       border-radius: 0.7rem;
       padding: 0.7rem;
-      margin: 10px;
+      margin: 20px;
       background-color: #2e8bc0;
       color: #ffffff;
       font-size: 1rem;
