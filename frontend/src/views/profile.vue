@@ -7,6 +7,7 @@ export default {
   components: { Counter },
   data() {
     return {
+      logo: 'logo-bunchart',
       users: [],
       time: new Date(),
       message: '',
@@ -30,9 +31,9 @@ export default {
 </script>
 
 <template lang="pug">
+
   .home
-    h1 bunchart
-    p The time is: {{ time }}
+    img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
     h2 Users
     div(v-for="user in users")
       router-link(:to="`/users/${user._id}`") {{ user.name }}
@@ -41,7 +42,7 @@ export default {
       div(v-for="stream in liveStreams")
         p {{ stream }}
         button(@click="joinStream(stream)") Join stream
-    button(@click="goLive") Go live
+    button(@click="goLive") Contact
     div(v-if="currentLiveStream")
       h3 Live stream
       .messages
@@ -52,4 +53,32 @@ export default {
       form(@submit="sendMessage")
         input(type="text" v-model="message")
         input(type="submit" value="Send message")
+
 </template>
+
+<style lang="scss" scoped>
+.home {
+  background-color: #162c40;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  align-content: center;
+  text-align: center;
+}
+img {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: auto;
+}
+
+h2,
+h3 {
+  color: rgb(224, 100, 17);
+}
+button {
+  padding: 10px;
+  margin: 00.7rem;
+}
+</style>
