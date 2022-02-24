@@ -1,31 +1,12 @@
 <script>
-import Counter from '@/components/counter.vue'
-import { mapActions, mapState } from 'vuex'
-
 export default {
   name: 'Profile',
-  components: { Counter },
+  components: {},
   data() {
     return {
       logo: 'logo-bunchart',
-      users: [],
-      time: new Date(),
-      message: '',
+      picProfile: 'profile-model',
     }
-  },
-  async created() {
-    this.users = await this.fetchUsers()
-  },
-  methods: {
-    ...mapActions(['fetchUsers', 'goLive', 'sendMessageToLiveStream', 'joinStream']),
-    sendMessage(e) {
-      e.preventDefault()
-      this.sendMessageToLiveStream(this.message)
-      this.message = ''
-    },
-  },
-  computed: {
-    ...mapState(['currentLiveStream', 'liveStreams', 'user', 'liveStreamMessages']),
   },
 }
 </script>
@@ -33,27 +14,11 @@ export default {
 <template lang="pug">
 
   .home
-    img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
-    h2 Users
-    div(v-for="user in users")
-      router-link(:to="`/users/${user._id}`") {{ user.name }}
-    div(v-if="liveStreams.length")
-      h2 Live streams
-      div(v-for="stream in liveStreams")
-        p {{ stream }}
-        button(@click="joinStream(stream)") Join stream
-    button(@click="goLive") Contact
-    div(v-if="currentLiveStream")
-      h3 Live stream
-      .messages
-        .message(v-for="message in liveStreamMessages")
-          p
-            span {{ message.author }}:&nbsp;
-            span {{ message.body }}
-      form(@submit="sendMessage")
-        input(type="text" v-model="message")
-        input(type="submit" value="Send message")
-
+    .container1
+        img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
+    .container2
+        img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
+    .container3
 </template>
 
 <style lang="scss" scoped>
@@ -66,19 +31,32 @@ export default {
   align-content: center;
   text-align: center;
 }
-img {
-  width: 150px;
-  height: 150px;
-  display: block;
-  margin: auto;
-}
 
-h2,
-h3 {
-  color: rgb(224, 100, 17);
+.container1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
 }
-button {
-  padding: 10px;
-  margin: 00.7rem;
+.container2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #05f2f2;
+  }
 }
 </style>
