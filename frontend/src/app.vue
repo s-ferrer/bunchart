@@ -22,6 +22,8 @@ export default {
       .boxNav
         router-link(to="/*") Home
       .boxNav(v-if='user')
+        router-link(to="/community") Community
+      .boxNav(v-if='user')
         router-link(to="/profile") Profile
       .boxNav(v-if='!user')
         router-link(to="/login") Login
