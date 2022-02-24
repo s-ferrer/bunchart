@@ -21,8 +21,7 @@ export default {
 
   .container1 {
     p {
-      background-color: #05dbf2;
-      color: #162c40;
+      color: #05dbf2;
       font-size: 2rem;
       padding: 3px;
       margin: 2px 40px 4px 40px;
@@ -40,7 +39,10 @@ export default {
     img {
       width: 350px;
       height: 350px;
-      border-radius: 0.7rem;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #05f2f2;
     }
   }
 }
