@@ -1,13 +1,14 @@
 <script>
-import AuctionSet from '@/components/auction-set.vue'
+import AuctionCard from '@/components/auction-card.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Auction',
-  components: { AuctionSet },
+  components: { AuctionCard },
   data() {
     return {
-      auctions: [{ category: 'digital' }],
+      logo: 'logo-bunchart',
+      auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
       bidders: [],
       time: new Date(),
     }
@@ -20,10 +21,15 @@ export default {
 
 <template lang="pug">
   .home
+    .container1
+        img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
     h1 Start the Auction!
-    p The time is: {{ time }}
+    p {{ time }}
 
-    button(@click="goLive") Go live
+    .box
+      AuctionCard(v-for="auction in auctions" :auction="auction")
+
+
 </template>
 
 <style lang="scss" scoped>
@@ -35,18 +41,43 @@ export default {
   padding-top: 50px;
   align-content: center;
   text-align: center;
-  color: #05f2f2;
-  height: 600px;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
 }
 
 button {
   border-radius: 0.7rem;
   padding: 10px 2px;
   margin: 10px;
-  background-color: #05f2f2;
+  background-color: #fc8208;
 }
+
 div {
   background-color: #162c40;
   color: #d94e5a;
+}
+
+.box {
+  background-color: #162c40;
+  padding: 2rem;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #05f2f2;
+
+  h1 {
+    color: #d94e5a;
+    margin-bottom: 3rem;
+  }
 }
 </style>

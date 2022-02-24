@@ -1,55 +1,62 @@
 <script>
-import Counter from '@/components/counter.vue'
-import { mapActions, mapState } from 'vuex'
-
 export default {
   name: 'Profile',
-  components: { Counter },
+  components: {},
   data() {
     return {
-      users: [],
-      time: new Date(),
-      message: '',
+      logo: 'logo-bunchart',
+      picProfile: 'profile-model',
     }
-  },
-  async created() {
-    this.users = await this.fetchUsers()
-  },
-  methods: {
-    ...mapActions(['fetchUsers', 'goLive', 'sendMessageToLiveStream', 'joinStream']),
-    sendMessage(e) {
-      e.preventDefault()
-      this.sendMessageToLiveStream(this.message)
-      this.message = ''
-    },
-  },
-  computed: {
-    ...mapState(['currentLiveStream', 'liveStreams', 'user', 'liveStreamMessages']),
   },
 }
 </script>
 
 <template lang="pug">
+
   .home
-    h1 bunchart
-    p The time is: {{ time }}
-    h2 Users
-    div(v-for="user in users")
-      router-link(:to="`/users/${user._id}`") {{ user.name }}
-    div(v-if="liveStreams.length")
-      h2 Live streams
-      div(v-for="stream in liveStreams")
-        p {{ stream }}
-        button(@click="joinStream(stream)") Join stream
-    button(@click="goLive") Go live
-    div(v-if="currentLiveStream")
-      h3 Live stream
-      .messages
-        .message(v-for="message in liveStreamMessages")
-          p
-            span {{ message.author }}:&nbsp;
-            span {{ message.body }}
-      form(@submit="sendMessage")
-        input(type="text" v-model="message")
-        input(type="submit" value="Send message")
+    .container1
+        img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
+    .container2
+        img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
+    .container3
 </template>
+
+<style lang="scss" scoped>
+.home {
+  background-color: #162c40;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  align-content: center;
+  text-align: center;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
+}
+.container2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  img {
+    width: 250px;
+    height: 250px;
+    display: block;
+    margin: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #05f2f2;
+  }
+}
+</style>

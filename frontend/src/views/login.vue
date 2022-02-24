@@ -5,6 +5,7 @@ export default {
   name: 'login',
   data() {
     return {
+      logo: 'logo-bunchart',
       email: '',
       password: '',
       backendError: null,

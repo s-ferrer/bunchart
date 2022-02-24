@@ -9,7 +9,6 @@ export default {
   .box1
     .container1
       p {{ auction.category }}
-      button(@click="") Start bidding
     .container2
       img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
 
@@ -18,15 +17,14 @@ export default {
 <style lang="scss" scoped>
 .box1 {
   margin: 1%;
-  padding: 0.7rem;
+  padding: 0.9rem;
 
   .container1 {
     p {
-      background-color: #05dbf2;
-      color: #162c40;
+      color: #05dbf2;
       font-size: 2rem;
-      padding: 4px;
-      margin: 2px 23px 4px 23px;
+      padding: 3px;
+      margin: 2px 40px 4px 40px;
     }
     button {
       border-radius: 0.7rem;
@@ -41,7 +39,10 @@ export default {
     img {
       width: 350px;
       height: 350px;
-      border-radius: 0.7rem;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #05f2f2;
     }
   }
 }

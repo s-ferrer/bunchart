@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home.vue'
-import Profile from '../views/profile.vue'
+import Community from '../views/community.vue'
 import Login from '../views/login.vue'
 import Register from '../views/register.vue'
 import Auction from '../views/auction.vue'
+import Profile from '../views/profile.vue'
 
 Vue.use(VueRouter)
 
@@ -45,9 +46,9 @@ export default function init(store) {
         },
       },
       {
-        path: '/profile',
-        name: 'profile',
-        component: Profile,
+        path: '/community',
+        name: 'community',
+        component: Community,
         beforeEnter(to, from, next) {
           if (!store.state.user) return next('/login')
           return next()
@@ -57,6 +58,16 @@ export default function init(store) {
         path: '/auction',
         name: 'Auction',
         component: Auction,
+        beforeEnter(to, from, next) {
+          if (!store.state.user) return next('/login')
+          return next()
+        },
+      },
+
+      {
+        path: '/profile',
+        name: 'profile',
+        component: Profile,
         beforeEnter(to, from, next) {
           if (!store.state.user) return next('/login')
           return next()
