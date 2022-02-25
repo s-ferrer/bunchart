@@ -37,7 +37,7 @@ export default {
       .boxNav(v-if='!user')
         router-link(to="/register") Register
       .boxNav(v-if='user')
-        router-link(to="/auction") Auction
+        router-link(to="/auctions") Auctions
       .boxNav(v-if='user')
         a(@click="doLogout" href="#") Logout
       router-view

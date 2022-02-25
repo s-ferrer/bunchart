@@ -3,7 +3,7 @@ import AuctionCard from '@/components/auction-card.vue'
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Auction',
+  name: 'Auctions',
   components: { AuctionCard },
   data() {
     return {
@@ -23,7 +23,6 @@ export default {
   .home
     h1 Start the Auction!
     p {{ time }}
-
     .box
       AuctionCard(v-for="auction in auctions" :auction="auction")
 
