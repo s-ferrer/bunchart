@@ -34,7 +34,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 600px;
+  height: 500px;
 
   img {
     width: 250px;

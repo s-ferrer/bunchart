@@ -66,6 +66,7 @@ head body template #app .header h1 Community .container .row .col-12.col-md-6.co
   padding-top: 50px;
   align-content: center;
   text-align: center;
+  height: 600px;
 }
 img {
   width: 150px;
