@@ -6,7 +6,6 @@ export default {
   components: { AuctionCard },
   data() {
     return {
-      logo: 'logo-bunchart',
       auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
     }
   },
@@ -15,15 +14,11 @@ export default {
 
 <template lang="pug">
   .home
-    .container1
-      img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
     .container2
       h1 Support your local artists!
     .box
       h1 Last auctions!
       AuctionCard(v-for="auction in auctions" :auction="auction")
-
-
 
 </template>
 
@@ -36,19 +31,6 @@ export default {
   padding-top: 50px;
   align-content: center;
   text-align: center;
-}
-
-.container1 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  img {
-    width: 350px;
-    height: 350px;
-    display: block;
-    margin: auto;
-  }
 }
 .container2 {
   h1 {

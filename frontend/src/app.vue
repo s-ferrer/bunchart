@@ -13,12 +13,19 @@ export default {
   computed: {
     ...mapState(['user']),
   },
+  data() {
+    return {
+      logo: 'logo-bunchart',
+    }
+  },
 }
 </script>
 
 <template lang="pug">
   #app
     #nav
+      .container
+        img.logo(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
       .boxNav
         router-link(to="/*") Home
       .boxNav(v-if='user')
@@ -34,6 +41,7 @@ export default {
       .boxNav(v-if='user')
         a(@click="doLogout" href="#") Logout
       router-view
+
 </template>
 
 <style lang="scss">
@@ -52,6 +60,12 @@ export default {
   padding: 30px;
   background-color: #2c3e50;
 
+  .container {
+    .logo {
+      width: 150px;
+      height: 150px;
+    }
+  }
   .boxNav {
     display: inline-flex;
     vertical-align: top;

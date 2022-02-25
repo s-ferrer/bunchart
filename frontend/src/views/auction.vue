@@ -21,8 +21,6 @@ export default {
 
 <template lang="pug">
   .home
-    .container1
-        img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
     h1 Start the Auction!
     p {{ time }}
 
@@ -71,9 +69,7 @@ div {
   background-color: #162c40;
   padding: 2rem;
   border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #05f2f2;
+  border: 1px solid #05f2f2;
 
   h1 {
     color: #d94e5a;
