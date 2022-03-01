@@ -2,14 +2,22 @@
 export default {
   name: 'UserCard',
   props: ['user'],
+  data() {
+    return {
+      logo: 'logo-bunchart',
+      picProfile: 'profile-model',
+    }
+  },
 }
 </script>
 
 <template lang="pug">
   .box
-    h1 {{ user.name }} ({{ user.age }}) {{ user.profession }}
+    img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
+    h1 {{ user.name }}
+    h3 {{ user.profession }}
     p Bio: {{ user.bio || 'This user has not bio yet.' }}
-    h2 Artworks ({{ user.artworksList.length }})
+    h3 Artworks ({{ user.artworksList.length }})
 
     .artwork(v-for="artwork in user.artworksList")
         img(:src="`https://picsum.photos${artwork.fileName}`" :alt="artwork.description" :title="artwork.description")
@@ -17,6 +25,8 @@ export default {
           | no likes yet!
         p(v-else)
           | {{ artwork.likedBy.map(user => user.name).join(', ') }}
+    .profile-card
+      button.btn.btn-primary connect
 
 </template>
 
@@ -24,9 +34,28 @@ export default {
 .box {
   color: white;
   padding: 2rem;
-  border: 1px solid rgb(36, 25, 190);
-  background: rgb(81, 115, 209);
+  border: 1px solid #05f2f2;
+  background-color: #2c3e50;
   border-radius: 0.3rem;
   // text-align: center;
+  img {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius: 50%;
+  }
+  h1 {
+    font-size: 2rem;
+    color: #fc8208;
+  }
+  h3 {
+    font-size: 1rem;
+    color: #fff;
+  }
+}
+img {
+  width: 350px;
+  height: 350px;
+  margin: auto;
 }
 </style>

@@ -7,7 +7,6 @@ export default {
   components: { Counter },
   data() {
     return {
-      logo: 'logo-bunchart',
       users: [],
       time: new Date(),
       message: '',
@@ -33,8 +32,7 @@ export default {
 <template lang="pug">
 
   .home
-    img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
-    h2 Users
+    h2 Community
     div(v-for="user in users")
       router-link(:to="`/users/${user._id}`") {{ user.name }}
     div(v-if="liveStreams.length")
@@ -56,6 +54,9 @@ export default {
 
 </template>
 
+head body template #app .header h1 Community .container .row .col-12.col-md-6.col-lg-4(v-for='user of users'
+:key='user.name') matchcard(:match='match')
+
 <style lang="scss" scoped>
 .home {
   background-color: #162c40;
@@ -65,6 +66,7 @@ export default {
   padding-top: 50px;
   align-content: center;
   text-align: center;
+  height: 600px;
 }
 img {
   width: 150px;
@@ -78,7 +80,7 @@ h3 {
   color: rgb(224, 100, 17);
 }
 button {
-  padding: 10px;
-  margin: 00.7rem;
+  padding: 5px;
+  margin: 0.7rem;
 }
 </style>

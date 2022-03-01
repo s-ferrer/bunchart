@@ -13,12 +13,19 @@ export default {
   computed: {
     ...mapState(['user']),
   },
+  data() {
+    return {
+      logo: 'logo-bunchart',
+    }
+  },
 }
 </script>
 
 <template lang="pug">
   #app
     #nav
+      .container
+        img.logo(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
       .boxNav
         router-link(to="/*") Home
       .boxNav(v-if='user')
@@ -30,13 +37,19 @@ export default {
       .boxNav(v-if='!user')
         router-link(to="/register") Register
       .boxNav(v-if='user')
-        router-link(to="/auction") Auction
+        router-link(to="/auctions") Auctions
+      .boxNav(v-if='!user')
+        router-link(to="/bid") Bid
       .boxNav(v-if='user')
         a(@click="doLogout" href="#") Logout
       router-view
+
 </template>
 
 <style lang="scss">
+@import '@/assets/theme.scss';
+@import 'bootstrap/scss/bootstrap.scss';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,6 +62,12 @@ export default {
   padding: 30px;
   background-color: #2c3e50;
 
+  .container {
+    .logo {
+      width: 150px;
+      height: 150px;
+    }
+  }
   .boxNav {
     display: inline-flex;
     vertical-align: top;

@@ -3,7 +3,7 @@ import AuctionCard from '@/components/auction-card.vue'
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Auction',
+  name: 'Auctions',
   components: { AuctionCard },
   data() {
     return {
@@ -21,13 +21,10 @@ export default {
 
 <template lang="pug">
   .home
-    .container1
-        img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
     h1 Start the Auction!
     p {{ time }}
-
     .box
-      AuctionCard(v-for="auction in auctions" :auction="auction")
+      AuctionCard(v-for="auction in auctions" :auction="auction" v-on:click="redirect_to_on-auction" )
 
 
 </template>
@@ -43,6 +40,9 @@ export default {
   text-align: center;
 }
 
+p {
+  font-size: 0.7rem;
+}
 .container1 {
   display: flex;
   flex-direction: row;
@@ -71,9 +71,7 @@ div {
   background-color: #162c40;
   padding: 2rem;
   border-radius: 10px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #05f2f2;
+  border: 1px solid #05f2f2;
 
   h1 {
     color: #d94e5a;

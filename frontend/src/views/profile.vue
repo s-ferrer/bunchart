@@ -14,11 +14,9 @@ export default {
 <template lang="pug">
 
   .home
-    .container1
-        img(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
-    .container2
-        img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
-    .container3
+    .container
+          img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
+
 </template>
 
 <style lang="scss" scoped>
@@ -27,36 +25,24 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 50px;
+  padding: 50px;
   align-content: center;
   text-align: center;
 }
 
-.container1 {
+.container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
-  img {
-    width: 100px;
-    height: 100px;
-    margin: auto;
-  }
-}
-.container2 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  height: 500px;
 
   img {
     width: 250px;
     height: 250px;
     display: block;
-    margin: 20px;
-    border-radius: 10px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #05f2f2;
+    padding: 1px;
+    border-radius: 20px;
+    border: 1.5px solid #05f2f2;
   }
 }
 </style>
