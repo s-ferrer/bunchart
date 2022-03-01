@@ -3,12 +3,12 @@ import AuctionCard from '@/components/auction-card.vue'
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Auctions',
+  name: 'Bid',
   components: { AuctionCard },
   data() {
     return {
       logo: 'logo-bunchart',
-      auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
+      auctions: [{ category: 'digital' }],
       bidders: [],
       time: new Date(),
     }
@@ -21,10 +21,10 @@ export default {
 
 <template lang="pug">
   .home
-    h1 Start the Auction!
+    h1 Start Bidding!
     p {{ time }}
     .box
-      AuctionCard(v-for="auction in auctions" :auction="auction" v-on:click="redirect_to_on-auction" )
+      AuctionCard(v-for="auction in auctions" :auction="auction" )
 
 
 </template>

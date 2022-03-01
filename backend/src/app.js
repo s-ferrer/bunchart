@@ -27,7 +27,7 @@ const usersRouter = require('./routes/users')
 const artworksRouter = require('./routes/artworks')
 const auctionsRouter = require('./routes/auctions')
 const accountsRouter = require('./routes/accounts')
-
+const bidRouter = require('./routes/bid')
 const app = express()
 
 app.use(helmet())
@@ -98,6 +98,7 @@ app.use('/api/account', accountsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/artworks', artworksRouter)
 app.use('/api/auctions', auctionsRouter)
+app.use('/api/bid', bidRouter)
 
 app.use(errors())
 
