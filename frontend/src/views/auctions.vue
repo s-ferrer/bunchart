@@ -1,10 +1,11 @@
 <script>
 import AuctionCard from '@/components/auction-card.vue'
+import BiddingButton from '@/components/bidding-button.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Auctions',
-  components: { AuctionCard },
+  components: { AuctionCard, BiddingButton },
   data() {
     return {
       logo: 'logo-bunchart',
@@ -23,8 +24,13 @@ export default {
   .home
     h1 Start the Auction!
     p {{ time }}
+
+
     .box
-      AuctionCard(v-for="auction in auctions" :auction="auction" v-on:click="redirect_to_on-auction" )
+      BiddingButton
+      AuctionCard(v-for="auction in auctions" :auction="auction")
+
+
 
 
 </template>
@@ -38,6 +44,7 @@ export default {
   padding-top: 50px;
   align-content: center;
   text-align: center;
+  height: 1800px;
 }
 
 p {

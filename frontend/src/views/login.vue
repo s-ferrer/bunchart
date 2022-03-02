@@ -50,7 +50,7 @@ export default {
 .login {
   color: #162c40;
   background-color: #162c40;
-  height: 500px;
+  height: 430px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

@@ -1,12 +1,12 @@
 <script>
 export default {
-  name: 'BiddingButton',
+  name: 'Hand',
   props: [''],
 }
 </script>
 
 <template lang="pug">
-        a(@click="" href="/bid") Bid now!
+        <button v-on:click="counter += 20">Add 1</button>
 </template>
 
 <style lang="scss" scoped>

@@ -17,7 +17,6 @@ export default {
 .box1 {
   margin: 1%;
   padding: 0.7rem;
-
   .container1 {
     p {
       color: #05dbf2;

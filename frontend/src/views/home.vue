@@ -31,6 +31,7 @@ export default {
   padding-top: 50px;
   align-content: center;
   text-align: center;
+  height: 1800px;
 }
 .container2 {
   h1 {
