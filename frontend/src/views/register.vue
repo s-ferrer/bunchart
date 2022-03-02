@@ -49,7 +49,7 @@ export default {
           input(v-model="password" id="password" type="password" placeholder="Your password" required)
         input(type="submit" value="Register")
         div(v-if="backendError") {{ backendError }}
-        div Already have an account? <router-link to="/login">Log in</router-link>
+        div Already have an account? <router-link id="login" to="/login">Log in</router-link>
 </template>
 
 <style lang="scss" scoped>
@@ -65,11 +65,11 @@ input {
 .register {
   color: #162c40;
   background-color: #162c40;
-  height: 500px;
+  height: 430px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 50px;
+  padding-top: 30px;
   align-content: center;
   text-align: center;
 }
@@ -77,5 +77,8 @@ input {
   background-color: #05f2f2;
   padding: 3rem;
   border-radius: 10%;
+}
+#login {
+  color: #bd6916;
 }
 </style>
