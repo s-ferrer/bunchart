@@ -1,11 +1,10 @@
 <script>
-import AuctionCard from '@/components/auction-card.vue'
-import BiddingButton from '@/components/bidding-button.vue'
+import BiddingCard from '@/components/bidding-card.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Auctions',
-  components: { AuctionCard, BiddingButton },
+  components: { BiddingCard },
   data() {
     return {
       logo: 'logo-bunchart',
@@ -21,68 +20,47 @@ export default {
 </script>
 
 <template lang="pug">
-  .home
-    h1 Start the Auction!
-    p {{ time }}
-
-
-    .box
-      BiddingButton
-      AuctionCard(v-for="auction in auctions" :auction="auction")
-
-
+ #app
+    .container
+      .row
+        .col-12
+          .call
+            h1 Start the Auction!
+            p {{ time }}
+      .row
+        .col-12
+          .showAuctions
+            BiddingCard(v-for="auction in auctions" :auction="auction")
 
 
 </template>
 
 <style lang="scss" scoped>
-.home {
-  background-color: #162c40;
-  display: flex;
+.container {
+  background-color: #2c3e50;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 50px;
+  padding: 5% 0% 5% 0%;
+  width: 100%;
   align-content: center;
   text-align: center;
-  height: 1800px;
+  height: auto;
 }
-
-p {
-  font-size: 0.7rem;
+.call {
+  margin: auto;
+  color: #b0d4dd;
+  font-size: 1rem;
 }
-.container1 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  img {
-    width: 150px;
-    height: 150px;
-    margin: auto;
-  }
-}
-
-button {
-  border-radius: 0.7rem;
-  padding: 10px 2px;
-  margin: 10px;
-  background-color: #fc8208;
-}
-
-div {
-  background-color: #162c40;
-  color: #d94e5a;
-}
-
-.box {
-  background-color: #162c40;
-  padding: 2rem;
+.showAuctions {
+  display: block;
+  margin: auto;
+  width: 100%;
   border-radius: 10px;
-  border: 1px solid #05f2f2;
-
-  h1 {
-    color: #d94e5a;
-    margin-bottom: 3rem;
-  }
+  border: solid 1px #05f2f2;
+  padding-bottom: 3rem;
+}
+h1 {
+  color: #d94e5a;
+  margin-bottom: 1rem;
 }
 </style>

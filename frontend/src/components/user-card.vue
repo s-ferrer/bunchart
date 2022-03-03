@@ -43,6 +43,7 @@ export default {
     height: 150px;
     margin: auto;
     border-radius: 50%;
+    border: 1px solid #05f2f2;
   }
   h1 {
     font-size: 2rem;

@@ -1,7 +1,10 @@
 <script>
+import BiddingButton from '@/components/bidding-button.vue'
+
 export default {
-  name: 'AuctionCard',
+  name: 'BiddingCard',
   props: ['auction'],
+  components: { BiddingButton },
 }
 </script>
 
@@ -9,9 +12,12 @@ export default {
   #app
     .container
       .row
-        .col-12
-          .text
-            p {{ auction.category }}
+        .col-6
+            .text
+                p {{ auction.category }}
+        .col-6
+            .button
+                BiddingButton
         .col-12
           img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
 
@@ -28,21 +34,20 @@ export default {
   .text {
     display: flex;
     color: #05dbf2;
-    justify-content: center;
     font-size: 1.7rem;
-    padding-top: 10%;
+    padding-left: 25%;
+    padding-top: 18%;
+    align-items: flex-start;
   }
-
+  .button {
+    padding-top: 5%;
+    font-weight: 700;
+  }
   img {
     border-radius: 10px;
     border: solid 1px #05f2f2;
     width: 15rem;
     height: 15rem;
   }
-}
-p {
-  color: #05dbf2;
-  font-size: 2rem;
-  padding-top: 2px;
 }
 </style>

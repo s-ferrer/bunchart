@@ -67,6 +67,8 @@ head body template #app .header h1 Community .container .row .col-12.col-md-6.co
   align-content: center;
   text-align: center;
   height: 600px;
+  border-radius: 0.3rem;
+  border: 1px solid #05f2f2;
 }
 img {
   width: 150px;

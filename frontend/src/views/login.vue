@@ -32,39 +32,51 @@ export default {
 </script>
 
 <template lang="pug">
-.login
-  .box
-    form(@submit="submitLogin")
-      h1 Log in to your account
-      label(for="email") Email:&nbsp;
-          input(v-model="email" id="email" type="email" placeholder="Your email" required)
-      label(for="password") Password:&nbsp;
-          input(v-model="password" id="password" type="password" placeholder="Your password" required)
-      input(type="submit" value="Log in")
-
-    div(v-if="backendError") {{ backendError }}
-    div Don't have an account yet? <router-link to="/register">Register</router-link>
+#app
+    .container
+      .row
+        .col-12
+          .form
+            form(@submit="submitLogin")
+              h1 Log in to your account
+              label(for="email") Email:&nbsp;
+                  input(v-model="email" id="email" type="email" placeholder="Your email" required)
+              label(for="password") Password:&nbsp;
+                  input(v-model="password" id="password" type="password" placeholder="Your password" required)
+              input(type="submit" value="Log in")
+      .row
+        .col-12
+          .register
+              div(v-if="backendError") {{ backendError }}
+              div Don't have an account yet? <router-link to="/register">Register</router-link>
 </template>
 
 <style lang="scss" scoped>
-.login {
+.container {
   color: #162c40;
-  background-color: #162c40;
-  height: 430px;
+  height: 530px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 50px;
+  padding-top: 30px;
   align-content: center;
   text-align: center;
+
+  label {
+    display: block;
+    margin: 1rem 0;
+  }
+  .form {
+    background-color: #05f2f2;
+    border-radius: 2%;
+    width: 100%;
+    padding: 5%;
+    padding-bottom: 10%;
+  }
 }
-label {
-  display: block;
-  margin: 1rem 0;
-}
-.box {
-  background-color: #05f2f2;
-  padding: 3rem;
-  border-radius: 10%;
+
+.register {
+  padding-top: 5%;
+  color: #fc8208;
 }
 </style>
