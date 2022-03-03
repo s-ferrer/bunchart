@@ -1,20 +1,25 @@
 <script>
 import AuctionCard from '@/components/auction-card.vue'
+import Hand from '@/components/hand.vue'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Bid',
-  components: { AuctionCard },
-  data() {
+  components: { AuctionCard, Hand },
+  data: () => {
     return {
       logo: 'logo-bunchart',
       auctions: [{ category: 'digital' }],
       bidders: [],
       time: new Date(),
+      count: 0,
     }
   },
   methods: {
     ...mapActions(['goLive']),
+  },
+  increment() {
+    this.count + 20
   },
 }
 </script>
@@ -24,7 +29,7 @@ export default {
   body
     .container
       .row
-        .col-12 col-med-6
+        .col-12.col-md-6
           .time
             p {{ time }}
         .col-12
@@ -40,10 +45,11 @@ export default {
             p 1300 €
         .col-4
           .hand
-            p BID
+            hand
         .col-4
           .finalPrice
-            p 1500 €
+            .message
+              p {{ count }} €
 
 </template>
 
@@ -53,10 +59,11 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  padding-top: 50px;
+  padding-top: 30px;
   align-content: center;
   text-align: center;
-  height: 800px;
+  height: 700px;
+
   h1 {
     font-size: 2rem;
     color: #fc8208;
@@ -66,11 +73,9 @@ export default {
     color: #05f2f2;
   }
 }
-
-button {
-  border-radius: 0.7rem;
-  padding: 10px 2px;
-  margin: 10px;
-  background-color: #fc8208;
+.card {
+  background-color: #162c40;
+  width: 15rem;
+  height: 21rem;
 }
 </style>
