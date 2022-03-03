@@ -20,17 +20,18 @@ export default {
           .call
             h1 Support your local artists!
       .row
-        .col-12
-          .showAuctions
-            h1 Last auctions!
-            AuctionCard(v-for="auction in auctions" :auction="auction")
+        .col-12.col-md-12.col-lg-12
+              h2 Last auctions!
+              .showAuctions
+                AuctionCard(v-for="auction in auctions" :auction="auction")
 
 </template>
 
 <style lang="scss" scoped>
 .container {
   background-color: #2c3e50;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 5% 0% 5% 0%;
   width: 100%;
@@ -39,21 +40,27 @@ export default {
   height: auto;
 }
 .call {
-  margin: auto;
+  margin-top: auto;
   color: #ffffff;
   font-size: 1rem;
 }
+h1 {
+  color: #e6964b;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  color: #e98121;
+  background-color: rgb(87, 81, 74);
+}
+
 .showAuctions {
-  display: block;
+  display: flex;
+  background-color: #8a3d7d;
   margin: auto;
+  height: 100%;
   width: 100%;
   border-radius: 10px;
   border: solid 1px #05f2f2;
   padding-bottom: 1rem;
-
-  h1 {
-    color: #d94e5a;
-    margin-bottom: 0.1rem;
-  }
 }
 </style>

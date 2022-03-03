@@ -23,12 +23,12 @@ export default {
  #app
     .container
       .row
-        .col-12
+        .col-12.col-md-12.col-lg-12
           .call
             h1 Start the Auction!
             p {{ time }}
       .row
-        .col-12
+        .col-12.col-md-12.col-lg-12
           .showAuctions
             BiddingCard(v-for="auction in auctions" :auction="auction")
 
@@ -38,7 +38,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   background-color: #2c3e50;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   padding: 5% 0% 5% 0%;
   width: 100%;
@@ -49,18 +50,19 @@ export default {
 .call {
   margin: auto;
   color: #b0d4dd;
-  font-size: 1rem;
+  font-size: 0.7rem;
 }
 .showAuctions {
-  display: block;
+  display: flex;
   margin: auto;
+  height: 100%;
   width: 100%;
   border-radius: 10px;
   border: solid 1px #05f2f2;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 h1 {
-  color: #d94e5a;
-  margin-bottom: 1rem;
+  color: #e98121;
+  margin-bottom: 0.7rem;
 }
 </style>
