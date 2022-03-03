@@ -12,37 +12,47 @@ export default {
 </script>
 
 <template lang="pug">
-
-  .home
+  #app
     .container
+      .row
+        .col-6
           img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
+        .col-6
+          p Sara Ferrer
+      .row
+        .col-6
+          .gallery
+
+
 
 </template>
 
 <style lang="scss" scoped>
-.home {
-  background-color: #162c40;
-  display: flex;
+.container {
+  display: block;
   flex-direction: column;
   flex-wrap: wrap;
-  padding: 50px;
   align-content: center;
   text-align: center;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   height: 500px;
+  padding-top: 2rem;
+  border-radius: 0.3rem;
+  border: 1px solid #05f2f2;
 
   img {
-    width: 250px;
-    height: 250px;
-    display: block;
-    padding: 1px;
-    border-radius: 20px;
-    border: 1.5px solid #05f2f2;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border-radius: 50%;
+    border: 1px solid #05f2f2;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50%;
+    padding-top: 10%;
+    color: #05f2f2;
   }
 }
 </style>
