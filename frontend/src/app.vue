@@ -25,22 +25,28 @@ export default {
   #app
     #nav
       .container
-        img.logo(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
-      .boxNav
-        router-link(to="/*") Home
-      .boxNav(v-if='user')
-        router-link(to="/community") Community
-      .boxNav(v-if='user')
-        router-link(to="/profile") Profile
-      .boxNav(v-if='!user')
-        router-link(to="/login") Login
-      .boxNav(v-if='!user')
-        router-link(to="/register") Register
-      .boxNav(v-if='user')
-        router-link(to="/auctions") Auctions
-      .boxNav(v-if='user')
-        a(@click="doLogout" href="#") Logout
-      router-view
+        .row
+          .col-12
+            .mylogo
+              img.logo(:src="require(`@/assets/${this.logo}.png`)" :alt="`This is the ${this.logo} logo image`")
+        .row
+          .col-12
+            .navBar
+              .boxNav
+                router-link(to="/*") Home
+              .boxNav(v-if='user')
+                router-link(to="/community") Community
+              .boxNav(v-if='user')
+                router-link(to="/profile") Profile
+              .boxNav(v-if='!user')
+                router-link(to="/login") Login
+              .boxNav(v-if='!user')
+                router-link(to="/register") Register
+              .boxNav(v-if='user')
+                router-link(to="/auctions") Auctions
+              .boxNav(v-if='user')
+                a(@click="doLogout" href="#") Logout
+              router-view
 
 </template>
 
@@ -61,17 +67,22 @@ export default {
   background-color: #2c3e50;
 
   .container {
+    display: block;
+    align-content: center;
+    text-align: center;
     .logo {
-      width: 150px;
-      height: 150px;
+      display: block;
+      margin: auto;
+      width: 7rem;
+      height: 7rem;
     }
   }
   .boxNav {
     display: inline-flex;
     vertical-align: top;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     text-align: center;
-    padding: 1rem;
+    padding: 0.7rem;
     a {
       font-weight: bold;
       text-decoration: none;
