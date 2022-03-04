@@ -12,7 +12,6 @@ export default {
         .col-12
           .text
             p {{ auction.category }}
-      .row
         .col-12
           img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
 
@@ -21,10 +20,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   // background-color: #162c40;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin: auto;
+  padding: 0rem;
   width: 100%;
   height: auto;
 
