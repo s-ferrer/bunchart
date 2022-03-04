@@ -35,6 +35,7 @@ export default {
   color: white;
   padding: 2rem;
   border: 1px solid #05f2f2;
+  background-color: #2c3e50;
   border-radius: 0.3rem;
   // text-align: center;
   img {

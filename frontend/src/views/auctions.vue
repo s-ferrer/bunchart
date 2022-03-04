@@ -8,14 +8,7 @@ export default {
   data() {
     return {
       logo: 'logo-bunchart',
-      auctions: [
-        { category: 'digital' },
-        { category: 'painting' },
-        { category: 'sculpture' },
-        { category: 'collage' },
-        { category: 'photography' },
-        { category: 'installation' },
-      ],
+      auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
       bidders: [],
       time: new Date(),
     }
@@ -30,47 +23,44 @@ export default {
  #app
     .container
       .row
-        .col-12.col-md-12.col-lg-12
+        .col-12
           .call
             h1 Start the Auction!
             p {{ time }}
       .row
-        .col-12.col-md-6.col-lg-4(v-for="auction in auctions")
+        .col-12
           .showAuctions
-            BiddingCard(:auction="auction")
+            BiddingCard(v-for="auction in auctions" :auction="auction")
 
 
 </template>
 
 <style lang="scss" scoped>
 .container {
-  display: flex;
-  flex-direction: row;
+  background-color: #2c3e50;
+  flex-direction: column;
   flex-wrap: wrap;
   padding: 5% 0% 5% 0%;
   width: 100%;
   align-content: center;
   text-align: center;
-  height: 100vh;
+  height: auto;
 }
 .call {
   margin: auto;
   color: #b0d4dd;
-  font-size: 0.8rem;
-}
-h1 {
-  color: #e98121;
-  margin-bottom: 0.3rem;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .showAuctions {
-  display: flex;
-  height: auto;
-
-  width: 90%;
+  display: block;
+  margin: auto;
+  width: 100%;
   border-radius: 10px;
   border: solid 1px #05f2f2;
-  padding-bottom: 1rem;
-  margin-bottom: 20px;
+  padding-bottom: 3rem;
+}
+h1 {
+  color: #d94e5a;
+  margin-bottom: 1rem;
 }
 </style>

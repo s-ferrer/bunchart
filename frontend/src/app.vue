@@ -65,13 +65,11 @@ export default {
 #nav {
   padding: 30px;
   background-color: #2c3e50;
-  height: auto;
+
   .container {
     display: block;
     align-content: center;
     text-align: center;
-    height: auto;
-
     .logo {
       display: block;
       margin: auto;
@@ -84,8 +82,7 @@ export default {
     vertical-align: top;
     margin-top: 0.3rem;
     text-align: center;
-    padding: 0.5rem;
-
+    padding: 0.7rem;
     a {
       font-weight: bold;
       text-decoration: none;
