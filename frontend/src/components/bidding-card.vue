@@ -12,13 +12,12 @@ export default {
   #app
     .container
       .row
-        .col-8.col-md-8.col-md-8
+        .col-6
             .text
                 p {{ auction.category }}
-        .col-4.col-md-4.col-md-4
+        .col-6
             .button
                 BiddingButton
-      .row
         .col-12
           img(:src="require(`@/assets/${this.auction.category}.jpg`)" :alt="`This is the ${this.auction.category} image`")
 
@@ -26,9 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // background-color: #162c40;
   margin: auto;
   padding: 0rem;
   width: 100%;
@@ -38,15 +35,12 @@ export default {
     display: flex;
     color: #05dbf2;
     font-size: 1.7rem;
-    padding-left: 35%;
-    padding-top: 5%;
+    padding-left: 25%;
+    padding-top: 18%;
     align-items: flex-start;
   }
   .button {
-    display: flex;
-    align-items: flex-start;
-    padding-top: 10%;
-    padding: 10%;
+    padding-top: 5%;
     font-weight: 700;
   }
   img {

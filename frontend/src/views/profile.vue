@@ -15,10 +15,10 @@ export default {
   #app
     .container
       .row
-        .col-12.col-md-6.col-lg-4
+        .col-6
           img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
-        .col-12.col-md-6.col-lg-4
-          p Sara Titirin
+        .col-6
+          p Sara Ferrer
       .row
         .col-6
           .gallery
@@ -34,16 +34,13 @@ export default {
   flex-wrap: wrap;
   align-content: center;
   text-align: center;
-  height: 100vh;
-  margin-top: 3rem;
-  padding-top: 3rem;
-  padding: 3rem;
-
+  height: 500px;
+  padding-top: 2rem;
   border-radius: 0.3rem;
   border: 1px solid #05f2f2;
 
   img {
-    width: 75%;
+    width: 100%;
     height: 100%;
     margin: auto;
     border-radius: 50%;
@@ -51,13 +48,11 @@ export default {
   }
   p {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-top: 5%;
-    padding-top: 65%;
-    color: #2c3e50;
-    font-weight: 700;
-    background-color: azure;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 50%;
+    padding-top: 10%;
+    color: #05f2f2;
   }
 }
 </style>
