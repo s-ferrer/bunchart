@@ -17,9 +17,8 @@ export default {
       .row
         .col-12.col-md-6.col-lg-4
           img(:src="require(`@/assets/${this.picProfile}.jpg`)" :alt="`This is the ${this.picProfile} profile image`")
-      .row
         .col-12.col-md-6.col-lg-4
-          p Sara Ferrer
+          p Sara Titirin
       .row
         .col-6
           .gallery
@@ -35,8 +34,11 @@ export default {
   flex-wrap: wrap;
   align-content: center;
   text-align: center;
-  height: 500px;
-  padding-top: 2rem;
+  height: 100vh;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  padding: 3rem;
+
   border-radius: 0.3rem;
   border: 1px solid #05f2f2;
 
@@ -49,11 +51,13 @@ export default {
   }
   p {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 5%;
-    padding-top: 5%;
-    color: #05f2f2;
+    padding-top: 65%;
+    color: #2c3e50;
+    font-weight: 700;
+    background-color: azure;
   }
 }
 </style>

@@ -12,10 +12,10 @@ export default {
   #app
     .container
       .row
-        .col-6.col-md-6.col-md-6
+        .col-8.col-md-8.col-md-8
             .text
                 p {{ auction.category }}
-        .col-6.col-md-6.col-md-6
+        .col-4.col-md-4.col-md-4
             .button
                 BiddingButton
       .row
@@ -26,7 +26,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background-color: #162c40;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -39,12 +38,15 @@ export default {
     display: flex;
     color: #05dbf2;
     font-size: 1.7rem;
-    padding-left: 50%;
-    padding-top: 18%;
+    padding-left: 35%;
+    padding-top: 5%;
     align-items: flex-start;
   }
   .button {
-    padding-top: 5%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 10%;
+    padding: 10%;
     font-weight: 700;
   }
   img {

@@ -117,7 +117,7 @@ router.get('/initialize', async (req, res) => {
   await manolo.setPassword('test')
   await manolo.save()
 
-  sara.bio = ' An international visual artist'
+  sara.bio = ' A conceptual visual artist'
   sara.save()
 
   const illustrationArtwork = await createArtwork({ artworkName: 'My Bubbles', fileName: 'bubbles.jpg' })

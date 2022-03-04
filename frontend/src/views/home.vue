@@ -6,7 +6,14 @@ export default {
   components: { AuctionCard },
   data() {
     return {
-      auctions: [{ category: 'digital' }, { category: 'painting' }, { category: 'sculpture' }],
+      auctions: [
+        { category: 'digital' },
+        { category: 'painting' },
+        { category: 'sculpture' },
+        { category: 'collage' },
+        { category: 'photography' },
+        { category: 'installation' },
+      ],
     }
   },
 }
@@ -21,9 +28,11 @@ export default {
             h1 Support your local artists!
       .row
         .col-12.col-md-12.col-lg-12
-              h2 Last auctions!
-              .showAuctions
-                AuctionCard(v-for="auction in auctions" :auction="auction")
+          h2 Last auctions!
+      .row
+        .col-12.col-md-6.col-lg-4(v-for="auction in auctions")
+          .showAuctions
+            AuctionCard(:auction="auction")
 
 </template>
 
@@ -37,30 +46,27 @@ export default {
   width: 100%;
   align-content: center;
   text-align: center;
-  height: auto;
+  height: 100vh;
 }
-.call {
-  margin-top: auto;
-  color: #ffffff;
-  font-size: 1rem;
-}
+
 h1 {
+  margin-top: -3%;
   color: #e6964b;
   margin-bottom: 0.5rem;
 }
 h2 {
-  color: #e98121;
-  background-color: rgb(87, 81, 74);
+  margin-top: 3%;
+  background-color: #e6964b;
 }
 
 .showAuctions {
   display: flex;
-  background-color: #8a3d7d;
   margin: auto;
-  height: 100%;
+  height: auto;
   width: 100%;
   border-radius: 10px;
   border: solid 1px #05f2f2;
   padding-bottom: 1rem;
+  margin-bottom: 20px;
 }
 </style>
